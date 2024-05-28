@@ -49,11 +49,11 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       : [
           {
             id: 'about',
-            name: locale === fallbackLng ? 'About' : 'À propos',
+            name: locale === fallbackLng ? 'About' : 'Sobre',
             keywords: '',
             shortcut: ['a'],
-            section: locale === fallbackLng ? 'Navigate' : 'Naviguer',
-            perform: () => router.push(`/${locale}/about`),
+            section: locale === fallbackLng ? 'Navigate' : 'Navegar',
+            perform: () => router.push(`/${locale}/about/andrevieira`),
             icon: (
               <i>
                 <AboutIcon />
@@ -63,7 +63,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
         ]),
   ]
   /* issue when using regular translations, this is a workaround to show how to implement section titles */
-  const navigationSection = locale === fallbackLng ? 'Navigate' : 'Naviguer'
+  const navigationSection = locale === fallbackLng ? 'Navigate' : 'Navegar'
   return (
     <KBarSearchProvider
       kbarConfig={{
@@ -72,7 +72,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
         defaultActions: [
           {
             id: 'home',
-            name: locale === fallbackLng ? 'Home' : 'Accueil',
+            name: locale === fallbackLng ? 'Home' : 'Início',
             keywords: '',
             shortcut: ['h'],
             section: navigationSection,
@@ -111,7 +111,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
           {
             id: 'projects',
-            name: locale === fallbackLng ? 'Projects' : 'Projets',
+            name: locale === fallbackLng ? 'Projects' : 'Projetos',
             keywords: '',
             shortcut: ['p'],
             section: navigationSection,

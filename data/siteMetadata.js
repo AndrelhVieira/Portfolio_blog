@@ -6,7 +6,7 @@ const siteMetadata = {
   description:
     'Discover the professional journey of Andre Vieira, a skilled web developer. Explore a diverse portfolio of projects and insightful blog posts on modern web development, including React Native, TypeScript, and Frontend in general.',
   language: 'en',
-  theme: 'system', // system, dark or light
+  theme: 'light', // system, dark or light
   siteUrl: 'https://andreluizv.dev.br', // TODO Atualizar urls após deploy
   siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
   siteLogo: '/static/images/logo.png',
