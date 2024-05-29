@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: 'https://andreluizv.dev.br', // TODO Atualizar urls após deploy
   siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
   siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'andreluizhillerv@gmail.com',
   github: 'https://github.com/AndrelhVieira',
