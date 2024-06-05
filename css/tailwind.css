@@ -64,3 +64,10 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+mark {
+  background-color: theme('colors.primary.500');
+  padding: 0.2em;
+  border-radius: 0.2em;
+  color: theme('colors.white');
+}
