@@ -3,12 +3,12 @@ type Metadata = {
 }
 
 export const maintitle: Metadata = {
-  en: 'Andre Luiz Vieira Personal Blog',
-  'pt-BR': 'Blog pessoal de Andre Luiz Vieira',
+  en: 'André Vieira | Portfolio & Blog',
+  'pt-BR': 'André Vieira | Portfolio & Blog',
 }
 
 export const maindescription: Metadata = {
-  en: 'Discover the professional journey of Andre Vieira, a skilled web developer. Explore a diverse portfolio of projects and insightful blog posts on modern web development, including React Native, TypeScript, and Frontend in general.',
+  en: 'I am André Luiz Vieira, a Web Developer specializing in frontend and backend technologies. Discover my projects and skills. On my blog, I talk about web development, programming, and the latest trends and techniques in the development world.',
   'pt-BR':
-    'Conheça a trajetória profissional de André Vieira, um habilidoso desenvolvedor web. Explore um portfólio diversificado de projetos e postagens de blog interessantes sobre desenvolvimento web moderno, incluindo React Native, TypeScript e Frontend em geral.',
+    'Sou o André Luiz Vieira, Desenvolvedor Web especializado em tecnologias frontend e backend. Conheça meus projetos e habilidades. Em meu blog falo sobre desenvolvimento web, programação e as mais recentes tendências e técnicas no mundo do desenvolvimento.',
 }

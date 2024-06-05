@@ -1,0 +1,27 @@
+{
+  "contact": "Contact",
+  "title_text_1": "Get in touch with me",
+  "title_text_2": "Leave your message",
+  "subtitle": "For professional contacts, feedback or to start a connection fill out the form below and I will get back to you as soon as possible",
+  "fields": {
+    "name": "What’s your name?",
+    "email": "What’s your email?",
+    "subject": "What’s the subject you want to talk about?",
+    "message": "Your message",
+    "send": "Send",
+    "subject_placeholder": "Job opportunity, post idea...",
+    "message_placeholder": "Hey Andre, I’d like to talk with you..."
+  },
+  "note_about_respond": "I promise to respond within three business days 😁",
+  "details": {
+    "contact": "Contact details",
+    "personal": "Personal infos",
+    "socials": "Socials",
+    "nationality": "Nationality: Brazilian",
+    "location": "Location: Curitiba, Paraná, Brazil"
+  },
+  "cv": {
+    "check_text": "Don’t forget to check my curriculum"
+  },
+  "error_on_emailjs": "There was a problem sending the email. Please contact me through another means."
+}

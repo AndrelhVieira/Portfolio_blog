@@ -1,0 +1,27 @@
+{
+  "contact": "Contato",
+  "title_text_1": "Entre em contato comigo",
+  "title_text_2": "Deixe sua mensagem",
+  "subtitle": "Para contatos profissionais, feedback ou para iniciar uma conexão, preencha o formulário abaixo e eu responderei o mais breve possível",
+  "fields": {
+    "name": "Qual é o seu nome?",
+    "email": "Qual é o seu e-mail?",
+    "subject": "Qual é o assunto que você deseja falar?",
+    "message": "Sua mensagem",
+    "send": "Enviar",
+    "subject_placeholder": "Oportunidade de trabalho, ideia para post...",
+    "message_placeholder": "Ei André, gostaria de falar com você..."
+  },
+  "note_about_respond": "Eu prometo responder dentro de três dias úteis 😁",
+  "details": {
+    "contact": "Detalhes de contato",
+    "personal": "Informações pessoais",
+    "socials": "Redes sociais",
+    "nationality": "Nacionalidade: Brasileiro",
+    "location": "Local: Curitiba, Paraná, Brasil"
+  },
+  "cv": {
+    "check_text": "Não se esqueça de conferir meu currículo"
+  },
+  "error_on_emailjs": "Houve um problema ao enviar o email. Por favor entre em contato comigo por outro meio."
+}

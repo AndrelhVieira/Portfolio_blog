@@ -1,25 +1,24 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Andre Luiz Vieira Personal Blog',
-  author: 'Andre Luiz Vieira',
-  headerTitle: 'Andre Vieira', // TODO Validar melhor nome para o título
+  title: 'André Vieira | Portfolio & Blog',
+  author: 'André Luiz Vieira',
+  headerTitle: 'André Vieira',
   description:
-    'Discover the professional journey of Andre Vieira, a skilled web developer. Explore a diverse portfolio of projects and insightful blog posts on modern web development, including React Native, TypeScript, and Frontend in general.',
+    'I am André Luiz Vieira, a Web Developer specializing in frontend and backend technologies. Discover my projects and skills. On my blog, I talk about web development, programming, and the latest trends and techniques in the development world.',
   language: 'en',
   theme: 'light', // system, dark or light
-  siteUrl: 'https://andreluizv.dev.br', // TODO Atualizar urls após deploy
-  siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
+  siteUrl: 'https://andreluizv.dev.br',
+  siteRepo: 'https://github.com/AndrelhVieira/Portfolio_blog',
   siteLogo: '/static/images/logo.png',
-  socialBanner: '',
-  mastodon: 'https://mastodon.social/@mastodonuser',
+  socialBanner: '/static/images/social-banner.png',
+  mastodon: '',
   email: 'andreluizhillerv@gmail.com',
   github: 'https://github.com/AndrelhVieira',
-  x: 'https://twitter.com/x',
-  // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
+  x: '',
+  facebook: '',
+  youtube: '',
   linkedin: 'https://www.linkedin.com/in/andreluizhillerv/',
-  threads: 'https://www.threads.net',
+  threads: '',
   instagram: 'https://www.instagram.com/andreluizhiller/',
   locale: 'en',
   multiauthors: false,
