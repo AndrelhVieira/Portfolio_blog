@@ -1,15 +1,12 @@
 {
   "greeting": "Mais Recentes",
-  "description": "Um blog criado com Next.js, i18n e Tailwind.css",
+  "description": "Confira meus posts mais recentes abaixo",
   "more": "Leia mais",
   "all": "Todos os artigos",
-
   "moreaboutme": "Mais sobre mim",
-
   "featured": "Em Destaque",
   "morefeatured": "Mais artigos em destaque",
   "morerecent": "Mais artigos recentes",
-
   "search": "Busca",
   "searchposts": "Buscar artigos",
   "comment": "Carregar comentários",

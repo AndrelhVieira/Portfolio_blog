@@ -12,6 +12,7 @@ import LangSwitch from './LangSwitch'
 import SearchButton from './search/SearchButton'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import type { LocaleTypes } from 'app/[locale]/i18n/settings'
+import ProjectsMenu from './ProjectsMenu'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
@@ -28,8 +29,11 @@ const Header = () => {
                 <Logo />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="hidden h-6 text-2xl font-semibold sm:block">
-                  {siteMetadata.headerTitle}
+                <div className="flex flex-col gap-1">
+                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                    {siteMetadata.headerTitle}
+                  </div>
+                  <div>{siteMetadata.siteUrl.replace('https://', '')}</div>
                 </div>
               ) : (
                 siteMetadata.headerTitle
@@ -56,6 +60,7 @@ const Header = () => {
                 </Link>
               )
             })}
+          <ProjectsMenu className="hidden sm:block" />
           <AuthorsMenu className="hidden sm:block" />
           <SearchButton />
           <ThemeSwitch />

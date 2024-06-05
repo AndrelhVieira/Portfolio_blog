@@ -2,6 +2,7 @@
   "home": "Home",
   "blog": "Blog",
   "tags": "Tags",
+  "games": "Games",
   "projects": "Projects",
   "about": "About",
   "lang": "Language",
@@ -42,6 +43,6 @@
   "back": "Go Back",
   "settings": "Settings",
   "language": "Language",
-  "french": "French",
+  "portuguese": "Portuguese (BR)",
   "english": "English"
 }
