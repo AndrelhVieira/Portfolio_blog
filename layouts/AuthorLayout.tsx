@@ -5,6 +5,7 @@ import Image from '@/components/Image'
 
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { createTranslation } from 'app/[locale]/i18n/server'
+import siteMetadata from '@/data/siteMetadata'
 
 interface AuthorLayoutProps {
   children: ReactNode
@@ -43,9 +44,9 @@ export default async function AuthorLayout({
           <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
           <div className="text-gray-500 dark:text-gray-400">{company}</div>
           <div className="flex space-x-3 pt-6">
+            <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
             <SocialIcon kind="github" href={github} />
             <SocialIcon kind="linkedin" href={linkedin} />
-            <SocialIcon kind="x" href={twitter} />
           </div>
         </div>
         <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">{children}</div>
