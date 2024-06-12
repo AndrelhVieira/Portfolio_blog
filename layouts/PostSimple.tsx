@@ -7,12 +7,13 @@ import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import siteMetadata from '@/data/siteMetadata'
+
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { PostSeriesBox } from '@/components/PostseriesBox'
 import Share from '@/components/Share'
+import siteMetadata from '@/data/siteMetadata'
 
 interface PostSimpleProps {
   content: CoreContent<Blog>

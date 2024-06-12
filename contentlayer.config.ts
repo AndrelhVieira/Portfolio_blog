@@ -179,48 +179,9 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
-export const Curriculum = defineDocumentType(() => ({
-  name: 'Curriculum',
-  filePathPattern: 'cvs/**/*.mdx',
-  fields: {
-    name: {
-      type: 'string',
-      description: 'Name of the person',
-    },
-    avatar: {
-      type: 'string',
-      description: 'URL of the avatar image',
-    },
-    occupation: {
-      type: 'string',
-      description: 'Occupation or job title',
-    },
-    company: {
-      type: 'string',
-      description: 'Current company or organization',
-    },
-    email: {
-      type: 'string',
-      description: 'Email address',
-    },
-    linkedin: {
-      type: 'string',
-      description: 'LinkedIn profile URL',
-    },
-    github: {
-      type: 'string',
-      description: 'GitHub profile URL',
-    },
-    language: {
-      type: 'string',
-      description: 'Language of the CV',
-    },
-  },
-}))
-
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Curriculum],
+  documentTypes: [Blog, Authors],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -254,3 +215,43 @@ export default makeSource({
     createSearchIndex(allBlogs)
   },
 })
+
+// TODO: Descomentar código abaixo e adicionar Curriculum em documentTypes dentro de makeSource
+// export const Curriculum = defineDocumentType(() => ({
+//   name: 'Curriculum',
+//   filePathPattern: 'cvs/**/*.mdx',
+//   fields: {
+//     name: {
+//       type: 'string',
+//       description: 'Name of the person',
+//     },
+//     avatar: {
+//       type: 'string',
+//       description: 'URL of the avatar image',
+//     },
+//     occupation: {
+//       type: 'string',
+//       description: 'Occupation or job title',
+//     },
+//     company: {
+//       type: 'string',
+//       description: 'Current company or organization',
+//     },
+//     email: {
+//       type: 'string',
+//       description: 'Email address',
+//     },
+//     linkedin: {
+//       type: 'string',
+//       description: 'LinkedIn profile URL',
+//     },
+//     github: {
+//       type: 'string',
+//       description: 'GitHub profile URL',
+//     },
+//     language: {
+//       type: 'string',
+//       description: 'Language of the CV',
+//     },
+//   },
+// }))

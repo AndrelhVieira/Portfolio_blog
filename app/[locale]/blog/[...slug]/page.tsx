@@ -19,7 +19,7 @@ interface BlogPageProps {
 }
 
 const defaultLayout = 'PostLayout'
-const layouts = {
+const layouts: any = {
   PostSimple,
   PostLayout,
   PostBanner,
@@ -131,7 +131,7 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
     .filter((a) => a.language === locale)
     .find((a) => a.slug.includes('default'))
   const authorList = post.authors || author
-  const authorDetails = authorList.map((author) => {
+  const authorDetails = authorList.map((author: string) => {
     const authorResults = allAuthors
       .filter((a) => a.language === locale)
       .find((a) => a.slug.includes(author))
@@ -139,7 +139,7 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
   })
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
+  jsonLd['author'] = authorDetails.map((author: { name: any }) => {
     return {
       '@type': 'Person',
       name: author.name,

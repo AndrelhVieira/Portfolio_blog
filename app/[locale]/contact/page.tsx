@@ -9,50 +9,79 @@ import { personalData } from '@/data/contactData'
 import emailjs from 'emailjs-com'
 import { useParams } from 'next/navigation'
 import { useTranslation } from '../i18n/client'
+import { Bounce, toast } from 'react-toastify'
+import { useTheme } from '@/components/theme/ThemeContext'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 import { useState } from 'react'
+import Modal from '@/components/Modal'
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    title: '',
-    message: '',
-  })
+  const [showModal, setShowModal] = useState(false)
 
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'contact')
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
+  const schema = yup.object().shape({
+    name: yup.string().required(t('validations.name')),
+    email: yup.string().email(t('validations.invalid_email')).required(t('validations.email')),
+    subject: yup.string().required(t('validations.subject')),
+    message: yup.string().required(t('validations.message')),
+  })
 
-  const sendEmail = (e) => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
 
+  const { theme } = useTheme()
+
+  const sendEmail = (data: any) => {
     const serviceId = process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!
     const templateId = process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!
     const userId = process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY!
 
     if (!serviceId || !templateId || !userId) {
       console.error('Faltando configurações do EmailJS.')
-      // TODO: Melhorar apresentação de erros
-      alert(t('error_on_emailjs'))
+      toast.error(t('error_on_emailjs'), {
+        position: 'top-center',
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: theme,
+        transition: Bounce,
+      })
       return
     }
 
-    emailjs.send(serviceId, templateId, formData, userId).then(
+    emailjs.send(serviceId, templateId, data, userId).then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text)
-        alert('Email enviado com sucesso!')
+        toast.success(t('email_sent'), {
+          position: 'top-center',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: theme,
+          transition: Bounce,
+        })
+        setShowModal(true)
       },
       (error) => {
         console.log('FAILED...', error)
         alert('Falha ao enviar o email.')
       }
     )
-
-    e.target.reset()
   }
 
   return (
@@ -67,7 +96,7 @@ const ContactPage = () => {
           <h2>{t('subtitle')}</h2>
         </div>
         <div>
-          <form className="flex flex-col gap-7" onSubmit={sendEmail}>
+          <form className="flex flex-col gap-7" onSubmit={handleSubmit(sendEmail)}>
             <div className="flex flex-col font-light">
               <p className="text-xs text-gray-400">01</p>
               <label className="font-semibold">{t('fields.name')}</label>
@@ -75,10 +104,10 @@ const ContactPage = () => {
                 type="text"
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="name"
-                name="name"
                 placeholder="John Doe"
-                onChange={handleChange}
+                {...register('name')}
               />
+              {errors.name && <span className="text-primary-500">{errors.name.message}</span>}
             </div>
             <div className="flex flex-col font-light">
               <p className="text-xs text-gray-400">02</p>
@@ -87,10 +116,10 @@ const ContactPage = () => {
                 type="text"
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="email"
-                name="email"
                 placeholder="john@doe.com"
-                onChange={handleChange}
+                {...register('email')}
               />
+              {errors.email && <span className="text-primary-500">{errors.email.message}</span>}
             </div>
             <div className="flex flex-col font-light">
               <p className="text-xs text-gray-400">03</p>
@@ -99,10 +128,10 @@ const ContactPage = () => {
                 type="text"
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="subject"
-                name="subject"
                 placeholder={t('fields.subject_placeholder')}
-                onChange={handleChange}
+                {...register('subject')}
               />
+              {errors.subject && <span className="text-primary-500">{errors.subject.message}</span>}
             </div>
             <div className="flex flex-col font-light">
               <p className="text-xs text-gray-400">04</p>
@@ -110,10 +139,10 @@ const ContactPage = () => {
               <textarea
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="message"
-                name="message"
                 placeholder={t('fields.message_placeholder')}
-                onChange={handleChange}
+                {...register('message')}
               />
+              {errors.message && <span className="text-primary-500">{errors.message.message}</span>}
             </div>
             <div className="mt-2 flex w-full rounded-md shadow-sm sm:mt-0">
               <button
@@ -153,7 +182,8 @@ const ContactPage = () => {
             <p className="text-lg font-bold uppercase text-primary-500">{t('details.socials')}</p>
             {/* TODO: Adicionar redes sociais */}
           </div>
-          <div className="pt-15 flex flex-col gap-5">
+          {/* TODO: Voltar uso do botão quando curriculum estiver disponível e validar melhor apresentação do botão */}
+          {/* <div className="pt-15 flex flex-col gap-5">
             <p className="text-lg uppercase">{t('cv.check_text')}</p>
             <button
               type="submit"
@@ -161,7 +191,15 @@ const ContactPage = () => {
             >
               CURRICULUM
             </button>
-          </div>
+          </div> */}
+
+          {showModal && (
+            <Modal
+              title={t('modal_title')}
+              text={t('modal_text')}
+              onCancel={() => setShowModal(false)}
+            />
+          )}
         </div>
       </div>
     </div>

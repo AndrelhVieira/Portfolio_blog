@@ -23,5 +23,15 @@
   "cv": {
     "check_text": "Don’t forget to check my curriculum"
   },
-  "error_on_emailjs": "There was a problem sending the email. Please contact me through another means."
+  "error_on_emailjs": "There was a problem sending the email. Please contact me through another means.",
+  "modal_title": "Thank you for contacting me! 😁",
+  "modal_text": "Please wait, I will be happy to respond promptly.",
+  "email_sent": "Email successfully sent!",
+  "validations": {
+    "name": "Name is required",
+    "email": "Email is required",
+    "invalid_email": "Invalid email address",
+    "subject": "Subject is required",
+    "message": "Message is required"
+  }
 }

@@ -5,7 +5,7 @@ import { useTagStore } from '@/components/util/useTagStore'
 import { LocaleTypes, locales } from 'app/[locale]/i18n/settings'
 import { Menu, Transition, RadioGroup } from '@headlessui/react'
 
-export const ChevronDownIcon = ({ className }) => {
+export const ChevronDownIcon = ({ className }: { className: string }) => {
   return (
     <svg
       className={`${className} transition-transform duration-300`}

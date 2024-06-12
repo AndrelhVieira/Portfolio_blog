@@ -43,5 +43,6 @@
   "settings": "Settings",
   "language": "Language",
   "portuguese": "Portuguese (BR)",
-  "english": "English"
+  "english": "English",
+  "cancel": "Cancel"
 }

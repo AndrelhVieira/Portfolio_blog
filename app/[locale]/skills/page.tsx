@@ -61,7 +61,7 @@ const SkillsPage = async ({ params: { locale } }: SkillsProps) => {
       <div className="items-start space-y-2 pt-8">
         <div className="flex flex-col gap-5">
           <div className="mb-10">
-            <h3 className="text-xl font-bold">{t('main')}</h3>
+            <h3 className="mb-4 text-xl font-bold">{t('main')}</h3>
             <div className="flex flex-shrink-0 flex-wrap items-stretch justify-between gap-10">
               <div className="flex flex-col items-center gap-2">
                 <ReactIcon width={75} height={75} />
@@ -134,7 +134,7 @@ const SkillsPage = async ({ params: { locale } }: SkillsProps) => {
             </div>
           </div>
           <div className="mb-10">
-            <h3 className="text-xl font-bold">Design</h3>
+            <h3 className="mb-4 text-xl font-bold">Design</h3>
             <div className="justify- flex flex-shrink-0 flex-wrap gap-10">
               <div className="flex flex-col items-center gap-2">
                 <Canva width={75} height={75} />
@@ -147,7 +147,7 @@ const SkillsPage = async ({ params: { locale } }: SkillsProps) => {
             </div>
           </div>
           <div className="mb-10">
-            <h3 className="mb-3 text-xl font-bold">{t('others')}</h3>
+            <h3 className="mb-4 text-xl font-bold">{t('others')}</h3>
             <div className="flex flex-shrink-0 flex-wrap items-stretch justify-between gap-10">
               <div className="flex flex-col items-center gap-2">
                 <OhMyZsh width={75} height={75} />

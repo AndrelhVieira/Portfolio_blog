@@ -3,6 +3,7 @@ import { allBlogs } from 'contentlayer/generated'
 import FeaturedLayout from '@/layouts/FeaturedLayout'
 import HomeLayout from '@/layouts/HomeLayout'
 import { LocaleTypes } from './i18n/settings'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 type HomeProps = {
   params: { locale: LocaleTypes }
@@ -17,6 +18,18 @@ export default async function Page({ params: { locale } }: HomeProps) {
         <FeaturedLayout posts={posts} params={{ locale }} />
       )}
       <HomeLayout posts={posts} params={{ locale: locale }} />
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Bounce}
+      />
     </>
   )
 }

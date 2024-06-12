@@ -4,6 +4,8 @@ import React, { useCallback } from 'react'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { useParams } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import { Bounce, toast } from 'react-toastify'
+import { useTheme } from 'next-themes'
 
 export interface NewsletterFormProps {
   title?: string
@@ -13,9 +15,21 @@ export interface NewsletterFormProps {
 const NewsletterForm = ({ apiUrl }: NewsletterFormProps) => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'newsletter')
+  const { theme } = useTheme()
 
   const handleSubscribe = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     window.open('https://buttondown.email/AndrelhVieira', 'popupwindow')
+    toast.success(t('placeholderSuccess'), {
+      position: 'top-center',
+      autoClose: 8000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: theme,
+      transition: Bounce,
+    })
   }, [])
 
   return (

@@ -23,5 +23,15 @@
   "cv": {
     "check_text": "Não se esqueça de conferir meu currículo"
   },
-  "error_on_emailjs": "Houve um problema ao enviar o email. Por favor entre em contato comigo por outro meio."
+  "error_on_emailjs": "Houve um problema ao enviar o email. Por favor entre em contato comigo por outro meio.",
+  "modal_title": "Obrigado por entrar em contato comigo! 😁",
+  "modal_text": "Fique no aguardo, ficarei feliz em te responder prontamente",
+  "email_sent": "Email enviado com sucesso!",
+  "validations": {
+    "name": "Nome é obrigatório",
+    "email": "Email é obrigatório",
+    "invalid_email": "Endereço de email inválido",
+    "subject": "Assunto é obrigatório",
+    "message": "Mensagem é obrigatório"
+  }
 }

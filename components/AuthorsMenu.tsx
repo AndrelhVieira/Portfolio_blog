@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { Fragment, useRef, useState } from 'react'
@@ -28,9 +27,11 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
     .sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1)) as Authors[]
 
   const MENU_OPTIONS: MenuOptions = [
-    { key: 'about', title: t('about'), href: '/about/andrevieira' },
-    { key: 'skills', title: 'Skills', href: '/skills' },
-    { key: 'curriculum', title: 'Curriculum', href: '/curriculum' },
+    { key: 'about', title: t('about'), href: `/${locale}/about/andrevieira` },
+    { key: 'skills', title: 'Skills', href: `/${locale}/skills` },
+    { key: 'contact', title: t('contact'), href: `/${locale}/contact` },
+    // TODO: Voltar menu de curriculum quando for implementado
+    // { key: 'curriculum', title: 'Curriculum', href: '/curriculum' },
   ]
 
   const pathname = usePathname()

@@ -1,9 +1,8 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
 import { useKBar } from 'kbar'
 
-interface KbarButtonProps {
+interface KbarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  [key: string]: any
 }
 
 /**
@@ -11,9 +10,7 @@ interface KbarButtonProps {
  *
  * @return {*}
  */
-export const KBarButton: React.FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-> = ({ children, ...rest }: KbarButtonProps) => {
+export const KBarButton: React.FC<KbarButtonProps> = ({ children, ...rest }) => {
   const { query } = useKBar()
 
   return (
