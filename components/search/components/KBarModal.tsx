@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'app/[locale]/i18n/client'
@@ -24,11 +23,12 @@ import {
   CopyToClipboard,
   SettingsIcon,
   EnglishIcon,
-  FrenchIcon,
+  PortugueseIcon,
 } from '../icons'
 import { Sun, Moon, Monitor } from '@/components/theme/icons'
 import { useTheme } from '@/components/theme/ThemeContext'
 import { useTagStore } from '@/components/util/useTagStore'
+import { useState } from 'react'
 
 const EmailForm = ({
   state,
@@ -40,7 +40,7 @@ const EmailForm = ({
   handleEmailChange,
   handleMessageChange,
   t,
-}) => (
+}: any) => (
   <>
     <div className="ml-2 mt-5 text-3xl font-semibold text-heading-400">{t('title')}</div>
     <div className="mb-16 ml-2 mr-2 mt-16">
@@ -59,7 +59,7 @@ const EmailForm = ({
   </>
 )
 
-const Settings = ({ t, handleThemeChange, handleLinkClick }) => (
+const Settings = ({ t, handleThemeChange, handleLinkClick }: any) => (
   <>
     <div className="mb-5 ml-4 mt-5 text-3xl font-semibold text-heading-400">{t('settings')}</div>
     <div className="my-auto mb-20 mt-10 flex max-h-[230px] flex-col space-y-4 overflow-y-auto">
@@ -75,8 +75,8 @@ const Settings = ({ t, handleThemeChange, handleLinkClick }) => (
         t={t}
         handleLinkClick={handleLinkClick}
         locale={secondLng}
-        lang="french"
-        Icon={FrenchIcon}
+        lang="portuguese"
+        Icon={PortugueseIcon}
       />
       <div className="ml-4 text-3xl font-semibold text-primary-400">{t('theme')}</div>
       <ThemeButton t={t} handleThemeChange={handleThemeChange} theme="light" Icon={Sun} />
@@ -86,7 +86,7 @@ const Settings = ({ t, handleThemeChange, handleLinkClick }) => (
   </>
 )
 
-const LangButton = ({ t, handleLinkClick, locale, lang, Icon }) => (
+const LangButton = ({ t, handleLinkClick, locale, lang, Icon }: any) => (
   <button
     className="flex flex-row py-2 hover:bg-primary-600 hover:text-white"
     onClick={() => handleLinkClick(locale)}
@@ -98,7 +98,7 @@ const LangButton = ({ t, handleLinkClick, locale, lang, Icon }) => (
   </button>
 )
 
-const ThemeButton = ({ t, handleThemeChange, theme, Icon }) => (
+const ThemeButton = ({ t, handleThemeChange, theme, Icon }: any) => (
   <button
     className="flex flex-row py-2 hover:bg-primary-600 hover:text-white"
     onClick={() => handleThemeChange(theme)}
@@ -127,7 +127,7 @@ const SearchIcon = () => (
   </svg>
 )
 
-const Button = ({ onClick, show, icon, label, backLabel }) => (
+const Button = ({ onClick, show, icon, label, backLabel }: any) => (
   <button
     className="flex flex-row items-center justify-center rounded-md bg-white px-2 py-1 text-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 hover:bg-gray-100 hover:text-primary-500 focus:outline-none dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600 dark:hover:text-primary-500"
     onClick={onClick}
@@ -148,7 +148,7 @@ const Button = ({ onClick, show, icon, label, backLabel }) => (
   </button>
 )
 
-const CopyButton = ({ show, copyUrl, showCopied, t }) => (
+const CopyButton = ({ show, copyUrl, showCopied, t }: any) => (
   <div className="relative inline-block">
     {!show && (
       <button
@@ -199,7 +199,7 @@ const RenderResults = () => {
   )
 }
 
-const ResultItem = ({ item, active }) => (
+const ResultItem = ({ item, active }: any) => (
   <div
     className={`flex cursor-pointer justify-between px-4 py-2 ${active ? 'bg-primary-600 text-gray-100' : 'bg-transparent text-gray-700 dark:text-gray-100'}`}
   >
@@ -216,7 +216,7 @@ const ResultItem = ({ item, active }) => (
     </div>
     {item.shortcut?.length ? (
       <div aria-hidden className="flex flex-row items-center justify-center gap-x-2">
-        {item.shortcut.map((sc) => (
+        {item.shortcut.map((sc: any) => (
           <kbd
             key={sc}
             className={`flex h-7 w-6 items-center justify-center rounded border text-xs font-medium ${active ? 'border-gray-200 text-gray-200' : 'border-gray-400 text-gray-400'}`}

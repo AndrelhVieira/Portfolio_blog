@@ -2,7 +2,10 @@ type Project = {
   title: string
   description: string
   imgSrc: string
-  href: string
+  href?: string
+  githubLink: string
+  soon?: boolean
+  freela?: boolean
 }
 
 type ProjectsData = {
@@ -12,38 +15,97 @@ type ProjectsData = {
 const projectsData: ProjectsData = {
   en: [
     {
-      title: 'A Search Engine',
-      description: `What if you could look up any information in the world? Webpages, images, videos
-        and more. Google has many features to help you find exactly what you're looking
-        for.`,
-      imgSrc: '/static/images/google.png',
-      href: 'https://www.google.com',
+      title: 'User Finder',
+      description: `The main purpose of this application is to streamline access to the account of friends, employees or even yours, easily providing the path to the main Github projects for that user. You can also see what your latest searches were through your search history. This application was created especially for Android.`,
+      imgSrc: '/static/projects/user-finder.png',
+      href: 'https://user-finder.vercel.app',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder',
     },
     {
-      title: 'The Time Machine',
-      description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-        to the desired date and press "Go". No more worrying about lost keys or
-        forgotten headphones with this simple yet affordable solution.`,
-      imgSrc: '/static/images/time-machine.jpg',
-      href: '/blog/the-time-machine',
+      title: 'User Finder - iOS',
+      description: `The same idea of User Finder, but developed for native iOS using Swift.`,
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-iOS',
+    },
+    {
+      title: 'User Finder - Android',
+      description: `The same idea of User Finder, but developed for native Android using Java.`,
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-Android',
+    },
+    // {
+    //   title: 'Rentx',
+    //   description: `That's an application for rent cars developed using React Native and the most recent technologies for mobile development.`,
+    //   imgSrc: '/static/images/time-machine.jpg',
+    //   githubLink: 'https://github.com/AndrelhVieira/rentx',
+    // },
+    {
+      title: 'Spotify Template',
+      description: `The purpose of that project was to learn how to use Tailwind CSS combined with Next JS, one of the most powerful React Frameworks.`,
+      imgSrc: '/static/projects/spotify-template.png',
+      githubLink: 'https://github.com/AndrelhVieira/next-tailwind-spotify',
+    },
+    {
+      title: 'Translathor',
+      description: `A translator mobile app using React Native with Thor inspired theme. Pretty cool, isn't?`,
+      imgSrc: '/static/projects/translathor.png',
+      githubLink: 'https://github.com/AndrelhVieira/TranslaThor',
+      soon: true,
+    },
+    {
+      title: 'USS Informática',
+      description: `One of my first projects as freelancer. A professional presentation of computing services.`,
+      imgSrc: '/static/projects/uss.png',
+      href: 'https://ussinformatica.com.br',
+      githubLink: 'https://github.com/AndrelhVieira/USS_Informatica',
+      freela: true,
     },
   ],
   'pt-BR': [
     {
-      title: 'Um Motor de Busca',
-      description: `E se você pudesse procurar qualquer informação no mundo? Páginas da web, imagens, vídeos
-        e mais. O Google tem muitos recursos para ajudar você a encontrar exatamente o que está
-        procurando.`,
-      imgSrc: '/static/images/google.png',
-      href: 'https://www.google.com',
+      title: 'User Finder',
+      description:
+        'O principal objetivo deste aplicativo é facilitar o acesso à conta de amigos, funcionários ou até mesmo a sua, fornecendo facilmente o caminho para os principais projetos do Github desse usuário. Você também pode ver quais foram suas últimas pesquisas através do seu histórico de busca. Este aplicativo foi criado especialmente para Android.',
+      imgSrc: '/static/projects/user-finder.png',
+      href: 'https://user-finder.vercel.app',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder',
     },
     {
-      title: 'A Máquina do Tempo',
-      description: `Imagine poder viajar de volta no tempo ou para o futuro. Simplesmente gire o botão
-        para a data desejada e pressione "Ir". Não se preocupe mais com chaves perdidas ou
-        fones de ouvido esquecidos com esta solução simples e acessível.`,
-      imgSrc: '/static/images/time-machine.jpg',
-      href: '/blog/the-time-machine',
+      title: 'User Finder - iOS',
+      description: 'A mesma ideia do User Finder, mas desenvolvido para iOS nativo usando Swift.',
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-iOS',
+    },
+    {
+      title: 'User Finder - Android',
+      description:
+        'A mesma ideia do User Finder, mas desenvolvido para Android nativo usando Java.',
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-Android',
+    },
+    {
+      title: 'Spotify Template',
+      description:
+        'O objetivo deste projeto foi aprender a usar o Tailwind CSS combinado com Next JS, um dos mais poderosos frameworks React.',
+      imgSrc: '/static/projects/spotify-template.png',
+      githubLink: 'https://github.com/AndrelhVieira/next-tailwind-spotify',
+    },
+    {
+      title: 'Translathor',
+      description:
+        'Um aplicativo de tradução para dispositivos móveis usando React Native com tema inspirado em Thor. Bem legal, não é?',
+      imgSrc: '/static/projects/translathor.png',
+      githubLink: 'https://github.com/AndrelhVieira/TranslaThor',
+      soon: true,
+    },
+    {
+      title: 'USS Informática',
+      description:
+        'Um dos meus primeiros projetos como freelancer. Uma apresentação profissional de serviços de informática.',
+      imgSrc: '/static/projects/uss.png',
+      href: 'https://ussinformatica.com.br',
+      githubLink: 'https://github.com/AndrelhVieira/USS_Informatica',
+      freela: true,
     },
   ],
 }

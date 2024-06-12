@@ -1,0 +1,27 @@
+{
+  "gender": "Gender: Male",
+  "birthdate": "Birthdate: 09/18/2002",
+  "location": "Location: Curitiba, Paraná, Brazil",
+  "nationality": "Nationality: Brazilian",
+  "marital_status": "Single",
+  "profile": {
+    "title": "Profile",
+    "profile_text": "Lorem ipsum dolor sit amet"
+  },
+  "education": {
+    "title": "Education",
+    "education_text": "Lorem ipsum dolor sit amet"
+  },
+  "professional": {
+    "title": "Professional experience"
+  },
+  "languages": {
+    "title": "Languages"
+  },
+  "skills": {
+    "title": "Skills "
+  },
+  "cultural_interets": {
+    "title": "Cultural Interests and Physical Recreation"
+  }
+}

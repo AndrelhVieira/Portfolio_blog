@@ -25,7 +25,7 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-export async function generateMetadata({ params: { locale } }): Promise<Metadata> {
+export async function generateMetadata({ params: { locale } }: any): Promise<Metadata> {
   return {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {

@@ -51,8 +51,8 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => {
       // Split the flattenedPath by '/' and take the last part
-      const pathParts = doc._raw.flattenedPath.split('/');
-      return pathParts[pathParts.length - 1];
+      const pathParts = doc._raw.flattenedPath.split('/')
+      return pathParts[pathParts.length - 1]
     },
   },
   path: {
@@ -64,7 +64,7 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc._raw.sourceFilePath,
   },
   toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
-};
+}
 
 /**
  * Count the occurrences of all tags across blog posts and write to json file
@@ -166,7 +166,7 @@ export const Authors = defineDocumentType(() => ({
   fields: {
     name: { type: 'string', required: true },
     language: { type: 'string', required: true },
-    default: {type: 'boolean'},
+    default: { type: 'boolean' },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
     company: { type: 'string' },
@@ -215,3 +215,43 @@ export default makeSource({
     createSearchIndex(allBlogs)
   },
 })
+
+// TODO: Descomentar código abaixo e adicionar Curriculum em documentTypes dentro de makeSource
+// export const Curriculum = defineDocumentType(() => ({
+//   name: 'Curriculum',
+//   filePathPattern: 'cvs/**/*.mdx',
+//   fields: {
+//     name: {
+//       type: 'string',
+//       description: 'Name of the person',
+//     },
+//     avatar: {
+//       type: 'string',
+//       description: 'URL of the avatar image',
+//     },
+//     occupation: {
+//       type: 'string',
+//       description: 'Occupation or job title',
+//     },
+//     company: {
+//       type: 'string',
+//       description: 'Current company or organization',
+//     },
+//     email: {
+//       type: 'string',
+//       description: 'Email address',
+//     },
+//     linkedin: {
+//       type: 'string',
+//       description: 'LinkedIn profile URL',
+//     },
+//     github: {
+//       type: 'string',
+//       description: 'GitHub profile URL',
+//     },
+//     language: {
+//       type: 'string',
+//       description: 'Language of the CV',
+//     },
+//   },
+// }))

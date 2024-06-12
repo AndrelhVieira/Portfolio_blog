@@ -16,7 +16,7 @@ export async function generateMetadata({
 }: AboutProps): Promise<Metadata> {
   const authorSlug = authors.join('/')
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
-  const { t } = await createTranslation(locale, 'about')
+  const { t } = await createTranslation(locale, 'common')
 
   return genPageMetadata({
     title: `${t('about')} ${author.name}`,

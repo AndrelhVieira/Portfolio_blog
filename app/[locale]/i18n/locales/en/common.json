@@ -3,7 +3,7 @@
   "blog": "Blog",
   "tags": "Tags",
   "projects": "Projects",
-  "about": "About",
+  "about": "About me",
   "lang": "Language",
   "showmenu": "Show menu",
   "scrollcomment": "Scroll to comment",
@@ -42,6 +42,7 @@
   "back": "Go Back",
   "settings": "Settings",
   "language": "Language",
-  "french": "French",
-  "english": "English"
+  "portuguese": "Portuguese (BR)",
+  "english": "English",
+  "cancel": "Cancel"
 }

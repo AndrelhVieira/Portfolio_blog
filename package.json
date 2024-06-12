@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-nextjs-starter-blog-i18n",
+  "name": "andre-vieira-personal-porfolio-blog",
   "version": "2.2.0",
   "private": true,
   "scripts": {
@@ -13,13 +13,16 @@
   },
   "dependencies": {
     "@formspree/react": "^2.5.1",
-    "@headlessui/react": "^1.7.19",
+    "@headlessui/react": "^2.0.4",
+    "@heroicons/react": "^2.1.3",
+    "@hookform/resolvers": "^3.6.0",
     "@next/bundle-analyzer": "14.2.3",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
     "@waline/client": "^3.1.3",
     "autoprefixer": "^10.4.17",
     "contentlayer2": "0.4.6",
+    "emailjs-com": "^3.2.0",
     "esbuild": "0.20.2",
     "framer-motion": "^11.1.7",
     "github-slugger": "^2.0.0",
@@ -37,9 +40,10 @@
     "react": "18.3.0",
     "react-dom": "18.3.0",
     "react-h5-audio-player": "^3.9.1",
+    "react-hook-form": "^7.51.5",
     "react-i18next": "^14.0.1",
     "react-spring": "^9.7.3",
-    "react-toastify": "^10.0.3",
+    "react-toastify": "^10.0.5",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.0.0",
@@ -52,6 +56,7 @@
     "remark-math": "^6.0.0",
     "tailwindcss": "^3.4.3",
     "unist-util-visit": "^5.0.0",
+    "yup": "^1.4.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
