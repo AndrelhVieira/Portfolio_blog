@@ -55,7 +55,7 @@ export default function PostMinimal({
               <PostSeriesBox data={series} />
             </div>
           )}
-          <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
+          <div className="prose max-w-none py-4 text-justify dark:prose-invert">{children}</div>
           <Share title={title} slug={slug} />
           <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
             {siteMetadata.iswaline === true && <WalineComments />}
