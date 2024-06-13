@@ -1,8 +1,7 @@
 'use client'
 
-import { Key, useState } from 'react'
+import { useState } from 'react'
 import { useTagStore } from '@/components/util/useTagStore'
-import { motion } from 'framer-motion'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -116,12 +115,12 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
           </div>
         </div>
         <div>
-          <motion.ul variants={container} initial="hidden" animate="show">
+          <ul>
             {displayPosts.map((post) => {
               const { slug, date, title, summary, tags, language } = post
               if (language === locale) {
                 return (
-                  <motion.li variants={item} key={slug} className="py-5">
+                  <li key={slug} className="py-5">
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <dl>
                         <dt className="sr-only">{t('pub')}</dt>
@@ -163,11 +162,11 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                         </div>
                       </div>
                     </article>
-                  </motion.li>
+                  </li>
                 )
               }
             })}
-          </motion.ul>
+          </ul>
           {totalPages > 1 && (
             <Pagination
               totalPages={totalPages}

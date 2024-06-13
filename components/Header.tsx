@@ -32,7 +32,9 @@ const Header = () => {
                   <div className="hidden h-6 text-2xl font-semibold sm:block">
                     {siteMetadata.headerTitle}
                   </div>
-                  <div>{siteMetadata.siteUrl.replace('https://', '')}</div>
+                  <div className="hidden sm:block">
+                    {siteMetadata.siteUrl.replace('https://', '')}
+                  </div>
                 </div>
               ) : (
                 siteMetadata.headerTitle
@@ -43,7 +45,7 @@ const Header = () => {
         <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
           {headerNavLinks
             .filter((link) => {
-              return link.href !== '/'
+              return link.href !== '/' && link.href !== '/skills' && link.href !== '/contact'
             })
             .map((link) => {
               const isSelected = pathname!.includes(link.href as string)
@@ -53,13 +55,13 @@ const Header = () => {
                   href={`/${locale}${link.href}`}
                   className={`hidden font-medium ${
                     isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
-                  }  sm:block`}
+                  }  md:block`}
                 >
                   {t(`${link.title.toLowerCase()}`)}
                 </Link>
               )
             })}
-          <AuthorsMenu className="hidden sm:block" />
+          <AuthorsMenu className="hidden md:block" />
           <SearchButton />
           <ThemeSwitch />
           <LangSwitch />

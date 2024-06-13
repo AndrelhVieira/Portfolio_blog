@@ -39,12 +39,12 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
   return (
     <div className="m-4 mt-8 flex flex-col items-center justify-center pt-4 sm:flex-row">
       <div className="mb-4 sm:mb-0">
-        <p className="text-highlighted dark:text-darkmode-highlighted mr-3 px-4 font-bold text-primary-500 sm:border-r-2">
+        <p className="text-highlighted dark:text-darkmode-highlighted px-4 font-bold text-primary-500 sm:border-r-2">
           {t('share')}
         </p>
       </div>
       <div>
-        <ul className={`grid grid-cols-4 gap-4 ${className}`}>
+        <ul className={`grid grid-cols-3 gap-4 ${className}`}>
           <li className="ml-4 inline-block">
             <SocialIcon
               kind="facebook"
@@ -59,14 +59,6 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
               size={5}
               aria-label={t('twittershare')}
               href={`https://twitter.com/intent/tweet/?url=${siteMetadata.siteUrl}/${locale}/${targetSegment}/${slug}&text=${title}`}
-            />
-          </li>
-          <li className="ml-4 inline-block">
-            <SocialIcon
-              kind="threads"
-              size={5}
-              aria-label={t('threadsshare')}
-              href={`https://threads.net/intent/post?text=${siteMetadata.siteUrl}/${locale}/${targetSegment}/${slug}`}
             />
           </li>
           <li className="ml-4 inline-block">
@@ -91,14 +83,6 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
               size={5}
               aria-label={t('whatsappshare')}
               href={`https://wa.me/?text=${siteMetadata.siteUrl}/${locale}/${targetSegment}/${slug}&text=${title}`}
-            />
-          </li>
-          <li className="ml-4 inline-block">
-            <SocialIcon
-              kind="telegram"
-              size={5}
-              aria-label={t('telegramshare')}
-              href={`https://telegram.me/share/url?url=${siteMetadata.siteUrl}/${locale}/${targetSegment}/${slug}&text=${title}`}
             />
           </li>
           <li className="relative ml-4 inline-block">

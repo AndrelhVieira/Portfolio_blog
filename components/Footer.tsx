@@ -51,12 +51,19 @@ export default function Footer() {
               <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
             </div>
           </div>
-          <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-            <div>{siteMetadata.author}</div>
-            <div>{` • `}</div>
-            <div>{`© ${new Date().getFullYear()}`}</div>
-            <div>{` • `}</div>
+          <div className="mb-2 flex flex-col items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400 sm:hidden">
+            <div>{}</div>
+            <div>{`${siteMetadata.author} • © ${new Date().getFullYear()}`}</div>
             <Link href="/">{maintitle[locale]}</Link>
+          </div>
+          <div className="hidden sm:block ">
+            <div className="mb-2 flex flex-wrap justify-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+              <div>{siteMetadata.author}</div>
+              <div>{` • `}</div>
+              <div>{`© ${new Date().getFullYear()}`}</div>
+              <div>{` • `}</div>
+              <Link href="/">{maintitle[locale]}</Link>
+            </div>
           </div>
           <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
             <Link href="https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n">
