@@ -13,7 +13,7 @@ type BlogPageProps = {
 export async function generateMetadata({ params: { locale } }: BlogPageProps): Promise<Metadata> {
   return genPageMetadata({
     title: 'Blog',
-    params: { locale: locale },
+    params: { locale },
   })
 }
 
