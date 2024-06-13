@@ -27,22 +27,7 @@ interface ListLayoutProps {
   pagination?: PaginationProps
 }
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, x: -25, y: 0 },
-  show: { opacity: 1, x: 0, y: 0 },
-}
-
-export default function ListLayoutWithTags({ params: { locale }, posts, title }: ListLayoutProps) {
+export default function ListLayout({ params: { locale }, posts, title }: ListLayoutProps) {
   const { t } = useTranslation(locale, 'home')
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = POSTS_PER_PAGE
@@ -87,7 +72,6 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                 : 'text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500'
             }`}
           >
-            {' '}
             {postTag} ({tagCountMap[postTag]})
           </h3>
         </button>
@@ -107,7 +91,11 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
           <div className="px-6 py-4">
             <button
               onClick={() => setSelectedTag('')}
-              className={`${useTagStore.getState().selectedTag === '' ? 'text-heading-500 dark:text-heading-400' : 'text-gray-500 dark:text-gray-400'} font-bold uppercase`}
+              className={`${
+                useTagStore.getState().selectedTag === ''
+                  ? 'text-heading-500 dark:text-heading-400'
+                  : 'text-gray-500 dark:text-gray-400'
+              } font-bold uppercase`}
             >
               {t('all')}
             </button>
@@ -172,7 +160,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
               totalPages={totalPages}
               currentPage={currentPage}
               onPageChange={onPageChange}
-              params={{ locale: locale }}
+              params={{ locale }}
             />
           )}
         </div>

@@ -12,6 +12,7 @@
     "format": "prettier -w ./app ./components ./layouts"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.2",
     "@formspree/react": "^2.5.1",
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",
