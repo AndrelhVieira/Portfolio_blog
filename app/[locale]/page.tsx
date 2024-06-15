@@ -4,6 +4,7 @@ import FeaturedLayout from '@/layouts/FeaturedLayout'
 import HomeLayout from '@/layouts/HomeLayout'
 import { LocaleTypes } from './i18n/settings'
 import { Bounce, ToastContainer } from 'react-toastify'
+import '../../css/globals.css'
 
 type HomeProps = {
   params: { locale: LocaleTypes }
