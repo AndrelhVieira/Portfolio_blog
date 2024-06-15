@@ -1,0 +1,19 @@
+mark {
+  background-color: theme('colors.primary.500');
+  padding: 0.2em;
+  border-radius: 0.2em;
+  color: theme('colors.white');
+}
+
+cite {
+  border-left: 2px solid red;
+  color: red;
+}
+
+::-moz-selection {
+  background-color: theme('colors.primary.500');
+}
+
+::selection {
+  background-color: theme('colors.primary.200');
+}

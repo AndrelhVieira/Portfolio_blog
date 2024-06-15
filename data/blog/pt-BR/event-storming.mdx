@@ -1,0 +1,87 @@
+---
+title: "EventStorming: Como Descobrir e Modelar Domínios Complexos com Post-its"
+date: '2023-10-02'
+language: pt-BR
+tags: ['desenvolvimento', 'organização',  'planejamento']
+images: ['/static/blog/event-storming.webp']
+authors: ['andrevieira']
+draft: false
+layout: PostBanner
+summary: "O EventStorming é uma técnica de design colaborativo que usa post-its coloridos para representar eventos, comandos, atores, agregados e sistemas externos que ocorrem em um domínio de negócio."
+canonicalUrl: https://andreluizv.dev.br/blog/eventstorming-como-descobrir-e-modelar-domínios-complexos-com-post-its
+---
+
+O EventStorming é uma técnica de design colaborativo que usa post-its coloridos para representar eventos, comandos, atores, agregados e sistemas externos que ocorrem em um domínio de negócio.
+
+O objetivo do EventStorming é facilitar a comunicação entre desenvolvedores e especialistas de domínio, permitindo que eles explorem e entendam o problema de forma visual e interativa.
+
+Neste artigo, vamos ver como aplicar o EventStorming no contexto do Domain Driven Design (DDD), uma abordagem que visa criar software baseado no conhecimento profundo do domínio e na colaboração entre as partes interessadas.
+
+# Introdução
+O DDD é uma filosofia de desenvolvimento de software que se concentra na linguagem ubíqua, nos modelos de domínio, nos contextos delimitados e nos padrões estratégicos e táticos.
+
+A linguagem ubíqua é o vocabulário comum e consistente que é usado por todos os envolvidos no projeto, desde os usuários finais até os desenvolvedores. A linguagem ubíqua ajuda a evitar ambiguidades e mal-entendidos, e a expressar as regras de negócio de forma clara e precisa.
+
+Os modelos de domínio são as representações conceituais do problema que o software deve resolver. Os modelos de domínio são compostos por entidades, valores, serviços, módulos e repositórios. Os modelos de domínio devem refletir a linguagem ubíqua e ser validados pelos especialistas de domínio.
+
+Os contextos delimitados são as fronteiras lógicas que separam os diferentes subdomínios do domínio principal. Cada contexto delimitado tem seu próprio modelo de domínio, sua própria linguagem ubíqua e suas próprias regras de negócio. Os contextos delimitados permitem modularizar e isolar o sistema em partes independentes e coerentes.
+
+Os padrões estratégicos e táticos são as soluções genéricas para os problemas comuns que surgem ao aplicar o DDD. Os padrões estratégicos tratam da organização dos contextos delimitados e da comunicação entre eles. Alguns exemplos de padrões estratégicos são: mapa de contexto, anti-corrupção camada, contexto compartilhado, cliente/servidor, publicador/assinante e conformista. Os padrões táticos tratam da implementação dos modelos de domínio dentro dos contextos delimitados. Alguns exemplos de padrões táticos são: entidade, valor, agregado, raiz de agregado, serviço de domínio, serviço de aplicação, repositório, fábrica, especificação e evento de domínio.
+
+<div align='center'>
+    <img 
+    src="/static/blog/event-storming-secondary.webp"
+    alt="OWASP: Princípios em Ação: Fortalecendo Nossas Defesas"
+    width='600'
+    heigth="550"
+    />
+</div>
+
+
+## Exemplos
+Para ilustrar como o EventStorming pode auxiliar no DDD, vamos usar um exemplo simples de um sistema de reserva de hotéis. O sistema deve permitir que os clientes pesquisem hotéis disponíveis em uma determinada cidade e data, façam reservas online e paguem com cartão de crédito ou boleto bancário.
+
+## EventStorming para descobrir o domínio
+O primeiro passo é realizar uma sessão de EventStorming para descobrir o domínio do sistema de reserva de hotéis. Para isso, precisamos reunir os desenvolvedores e os especialistas de domínio em uma sala ampla com uma parede ou quadro branco vazio. Também precisamos providenciar post-its coloridos, canetas e fita adesiva.
+
+A sessão começa com a definição do objetivo do sistema: permitir que os clientes reservem hotéis online. Em seguida, os participantes começam a escrever em post-its laranjas os eventos mais importantes que acontecem no sistema, usando verbos no passado. Por exemplo: “Cliente pesquisou hotéis”, “Cliente selecionou hotel”, “Cliente fez reserva”, “Cliente pagou com cartão”, “Cliente pagou com boleto”, “Reserva confirmada”, “Reserva cancelada”, etc.
+
+Os post-its laranjas são colados na parede em ordem cronológica, formando uma linha do tempo dos eventos. Os participantes podem discutir e questionar os eventos, buscando esclarecer as regras de negócio, as restrições, as exceções e as variações. Os post-its podem ser movidos, adicionados, removidos ou agrupados conforme a necessidade.
+
+Depois de ter uma visão geral dos eventos, os participantes começam a identificar em post-its azuis os comandos que causam os eventos, usando verbos no imperativo. Por exemplo: “Pesquisar hotéis”, “Selecionar hotel”, “Fazer reserva”, “Pagar com cartão”, “Pagar com boleto”, “Confirmar reserva”, “Cancelar reserva”, etc.
+
+Os post-its azuis são colados acima dos post-its laranjas correspondentes, formando uma relação de causa e efeito entre os comandos e os eventos. Os participantes podem discutir e questionar os comandos, buscando entender as intenções, as motivações, as expectativas e as responsabilidades dos usuários.
+
+Em seguida, os participantes começam a identificar em post-its rosas os atores que emitem ou recebem os comandos e os eventos, usando substantivos. Por exemplo: “Cliente”, “Sistema”, “Hotel”, “Operadora de cartão”, “Banco”, etc.
+
+Os post-its rosas são colados à esquerda ou à direita dos post-its azuis e laranjas correspondentes, formando uma relação de origem e destino entre os atores e as mensagens. Os participantes podem discutir e questionar os atores, buscando entender seus papéis, seus interesses, seus comportamentos e suas interações.
+
+Finalmente, os participantes começam a identificar em post-its verdes os agregados que contêm ou são afetados pelos eventos, usando substantivos. Por exemplo: “Pesquisa”, “Hotel”, “Reserva”, “Pagamento”, etc.
+
+Os post-its verdes são colados abaixo dos post-its laranjas correspondentes, formando uma relação de pertencimento ou alteração entre os agregados e os eventos. Os participantes podem discutir e questionar os agregados, buscando entender suas propriedades, seus estados, seus invariantes e suas transições.
+
+O resultado final é um mapa visual do domínio do sistema de reserva de hotéis, que mostra os eventos, os comandos, os atores, os agregados e as relações entre eles. O mapa pode ser usado como base para definir a linguagem ubíqua, os modelos de domínio e os contextos delimitados do sistema.
+
+## EventStorming para modelar o domínio
+O segundo passo é realizar uma sessão de EventStorming para modelar o domínio do sistema de reserva de hotéis. Para isso, precisamos usar o mapa gerado na sessão anterior como ponto de partida. Também precisamos providenciar post-its amarelos, roxos e cinzas.
+
+A sessão começa com a definição dos contextos delimitados do sistema. Para isso, usamos fita adesiva para delimitar as áreas do mapa que representam subdomínios distintos e independentes. Por exemplo: podemos identificar um contexto delimitado de pesquisa de hotéis, um contexto delimitado de reserva de hotéis e um contexto delimitado de pagamento de hotéis.
+
+Cada contexto delimitado tem seu próprio modelo de domínio, sua própria linguagem ubíqua e suas próprias regras de negócio. Dentro de cada contexto delimitado, podemos refinar o modelo de domínio usando os padrões táticos do DDD.
+
+Para isso, usamos post-its amarelos para representar as entidades que possuem identidade única e ciclo de vida dentro do domínio. Por exemplo: dentro do contexto delimitado de reserva de hotéis, podemos identificar a entidade Reserva.
+
+Também usamos post-its roxos para representar os valores que possuem apenas atributos imutáveis e são comparados por igualdade. Por exemplo: dentro do contexto delimitado de reserva de hotéis, podemos identificar o valor Data.
+
+Além disso, usamos post-its cinzas para representar os serviços que encapsulam operações complexas ou transversais que não pertencem a nenhuma entidade ou valor. Por exemplo: dentro do contexto delimitado de reserva de hotéis, podemos identificar o serviço ReservaService.
+
+Os post-its amarelos, roxos e cinzas são colados abaixo dos post-its verdes correspondentes, formando uma relação de composição ou associação entre os agregados e os elementos do modelo de domínio. Os participantes podem discutir e questionar os elementos do modelo de domínio, buscando definir seus atributos, seus métodos, suas validações e suas dependências.
+
+O resultado final é um modelo visual do domínio do sistema de reserva de hotéis, que mostra os contextos delimitados, os agregados e os elementos do modelo de domínio. O modelo pode ser usado como base para implementar o código do sistema, seguindo os princípios e as práticas do DDD.
+
+# Conclusão
+O EventStorming é uma técnica poderosa e divertida para descobrir e modelar domínios complexos com post-its. O EventStorming pode auxiliar no DDD, facilitando a comunicação entre desenvolvedores e especialistas de domínio, permitindo que eles explorem e entendam o problema de forma visual e interativa, definam a linguagem ubíqua, os modelos de domínio e os contextos delimitados do sistema, e apliquem os padrões estratégicos e táticos do DDD.
+
+Espero que você tenha gostado deste artigo sobre o tema “EventStorming: Como Descobrir e Modelar Domínios Complexos com Post-its”. Se você quiser saber mais sobre o EventStorming, recomendo que você leia o livro “Introducing EventStorming”, de Alberto Brandolini, ou visite o site EventStorming.com. Se você quiser saber mais sobre o DDD, recomendo que você leia o livro Domain-Driven Design, de Eric Evans, ou visite o site DomainLanguage.com.
+
+Se você gostou deste artigo, por favor, me siga, compartilhe e deixe sua curtida. Assim, você me ajuda a divulgar o meu trabalho e a continuar produzindo conteúdo de qualidade para você. Além disso, você pode deixar seu comentário com suas dúvidas, sugestões ou críticas. Eu ficarei feliz em ler e responder. Muito obrigado pela sua atenção e até a próxima! 😊

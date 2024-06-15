@@ -13,6 +13,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { PostSeriesBox } from '@/components/PostseriesBox'
 import Share from '@/components/Share'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import NewsletterForm from '@/components/NewsletterForm'
 
 interface PostBannerProps {
   content: CoreContent<Blog>
@@ -55,14 +56,21 @@ export default function PostMinimal({
               <PostSeriesBox data={series} />
             </div>
           )}
-          <div className="prose max-w-none py-4 text-justify dark:prose-invert">{children}</div>
+          <div className="prose max-w-none break-words py-4 text-justify dark:prose-invert">
+            {children}
+          </div>
+
+          <div className="flex items-center justify-center pt-4">
+            <NewsletterForm />
+          </div>
+
           <Share title={title} slug={slug} />
           <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
             {siteMetadata.iswaline === true && <WalineComments />}
             {siteMetadata.comments && siteMetadata.iscomments === true && <Comments slug={slug} />}
           </div>
           <footer>
-            <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
+            <div className="grid-row-2 grid gap-5 text-sm font-medium sm:grid-cols-2 sm:flex-row sm:justify-between sm:text-base md:gap-10">
               {prev && prev.slug && (
                 <div className="pt-4 xl:pt-8">
                   <Link
