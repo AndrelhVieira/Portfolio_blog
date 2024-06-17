@@ -46,6 +46,13 @@ const projectsData: ProjectsData = {
       githubLink: 'https://github.com/AndrelhVieira/next-tailwind-spotify',
     },
     {
+      title: 'Barberstone',
+      description: `After research into the services provided by barbershops, this project was developed thinking about how we could improve barbershop services, both for customers, barbers and business owners.`,
+      imgSrc: '/static/projects/barberstone.png',
+      githubLink: 'https://github.com/AndrelhVieira/Barberstone',
+      href: 'https://cap-stone-squad-2.vercel.app',
+    },
+    {
       title: 'Translathor',
       description: `A translator mobile app using React Native with Thor inspired theme. Pretty cool, isn't?`,
       imgSrc: '/static/projects/translathor.png',
@@ -89,6 +96,13 @@ const projectsData: ProjectsData = {
         'O objetivo deste projeto foi aprender a usar o Tailwind CSS combinado com Next JS, um dos mais poderosos frameworks React.',
       imgSrc: '/static/projects/spotify-template.png',
       githubLink: 'https://github.com/AndrelhVieira/next-tailwind-spotify',
+    },
+    {
+      title: 'Barberstone',
+      description: `Após uma pesquisa sobre os serviços prestados por barbearias este projeto foi desenvolvido pensando em como poderíamos aperfeiçoar os atendimentos de barbearias, tanto para clientes como para barbeiros e empresários.`,
+      imgSrc: '/static/projects/barberstone.png',
+      githubLink: 'https://github.com/AndrelhVieira/Barberstone',
+      href: 'https://cap-stone-squad-2.vercel.app',
     },
     {
       title: 'Translathor',
