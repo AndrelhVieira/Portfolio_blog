@@ -17,6 +17,9 @@ const Project = () => {
           description={project.description}
           imgSrc={project.imgSrc}
           href={project.href}
+          githubLink={project.githubLink}
+          soon={project.soon}
+          freela={project.freela}
         />
       ))}
     </>
