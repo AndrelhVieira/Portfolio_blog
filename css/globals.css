@@ -5,11 +5,6 @@ mark {
   color: theme('colors.white');
 }
 
-cite {
-  border-left: 2px solid red;
-  color: red;
-}
-
 ::-moz-selection {
   background-color: theme('colors.primary.500');
 }

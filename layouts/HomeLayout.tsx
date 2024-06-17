@@ -104,6 +104,9 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
           </Link>
         </div>
       )}
+
+      <div className="my-5"></div>
+
       {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />

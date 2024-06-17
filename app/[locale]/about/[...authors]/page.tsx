@@ -11,15 +11,11 @@ type AboutProps = {
   params: { authors: string[]; locale: LocaleTypes }
 }
 
-export async function generateMetadata({
-  params: { authors, locale },
-}: AboutProps): Promise<Metadata> {
-  const authorSlug = authors.join('/')
-  const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
+export async function generateMetadata({ params: { locale } }: AboutProps): Promise<Metadata> {
   const { t } = await createTranslation(locale, 'common')
 
   return genPageMetadata({
-    title: `${t('about')} ${author.name}`,
+    title: `${t('about')}`,
     params: { locale: locale },
   })
 }
