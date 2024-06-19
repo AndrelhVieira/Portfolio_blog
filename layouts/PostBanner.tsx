@@ -16,6 +16,7 @@ import Share from '@/components/Share'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import NewsletterForm from '@/components/NewsletterForm'
 import { createTranslation } from 'app/[locale]/i18n/server'
+import GiscusContent from '@/components/GiscusContent'
 
 interface PostBannerProps {
   content: CoreContent<Blog>
@@ -93,6 +94,9 @@ export default async function PostMinimal({
             {siteMetadata.iswaline === true && <WalineComments />}
             {siteMetadata.comments && siteMetadata.iscomments === true && <Comments slug={slug} />}
           </div>
+
+          <GiscusContent />
+
           <footer>
             <div className="grid-row-2 grid gap-5 text-sm font-medium sm:grid-cols-2 sm:flex-row sm:justify-between sm:text-base md:gap-10">
               {prev && prev.slug && (
