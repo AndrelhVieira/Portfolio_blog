@@ -4,6 +4,7 @@ import Bleed from 'pliny/ui/Bleed'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Comments from '@/components/Comments'
+import AvatarImage from 'public/static/images/avatar.png'
 import WalineComments from '@/components/walinecomponents/walineComments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -14,6 +15,7 @@ import { PostSeriesBox } from '@/components/PostseriesBox'
 import Share from '@/components/Share'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import NewsletterForm from '@/components/NewsletterForm'
+import { createTranslation } from 'app/[locale]/i18n/server'
 
 interface PostBannerProps {
   content: CoreContent<Blog>
@@ -23,13 +25,14 @@ interface PostBannerProps {
   params: { locale: LocaleTypes }
 }
 
-export default function PostMinimal({
+export default async function PostMinimal({
   content,
   next,
   prev,
   children,
   params: { locale },
 }: PostBannerProps) {
+  const { t } = await createTranslation(locale, 'common')
   const { slug, title, images, series } = content
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
@@ -58,6 +61,27 @@ export default function PostMinimal({
           )}
           <div className="prose max-w-none break-words py-4 text-justify dark:prose-invert">
             {children}
+          </div>
+
+          <div className="mb-5 mt-10 flex flex-col items-center gap-5 sm:flex-row">
+            <Image
+              src={AvatarImage}
+              alt="avatar"
+              title="avatar"
+              className="inset-border border-10 h-32 w-32 rounded-full sm:h-20"
+            />
+            <div>
+              <p className="mb-3 text-lg font-bold md:text-2xl">
+                {t('written_by')}{' '}
+                <Link href="/about/andrevieira" className="text-primary-300">
+                  André Luiz Vieira
+                </Link>
+              </p>
+              <p className="text-justify">{t('about_me')}</p>
+              <Link href="/about/andrevieira" className="text-primary-300">
+                {t('more')}
+              </Link>
+            </div>
           </div>
 
           <div className="flex items-center justify-center pt-4">
