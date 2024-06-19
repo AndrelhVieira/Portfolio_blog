@@ -1,17 +1,16 @@
-const { withContentlayer } = require('next-contentlayer2')
-
+const { withContentlayer } = require('next-contentlayer')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// You might need to insert additional domains in script-src if you are using external services
+// Update the Content Security Policy to include Google Analytics domains
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is statichunt.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is statichunt.com www.googletagmanager.com www.google-analytics.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data: statichunt.com;
   media-src 'self' *.s3.amazonaws.com;
-  connect-src * statichunt.com;
+  connect-src * statichunt.com www.google-analytics.com;
   font-src 'self';
   frame-src giscus.app
 `
