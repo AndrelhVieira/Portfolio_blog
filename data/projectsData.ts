@@ -1,5 +1,14 @@
+export type ProjectOptions =
+  | 'User Finder'
+  | 'User Finder - iOS'
+  | 'User Finder - Android'
+  | 'Barberstone'
+  | 'Translathor'
+  | 'USS Informática'
+  | 'Spotify Template'
+
 type Project = {
-  title: string
+  title: ProjectOptions
   description: string
   imgSrc: string
   href?: string

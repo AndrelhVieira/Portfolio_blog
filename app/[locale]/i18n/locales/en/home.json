@@ -1,5 +1,6 @@
 {
-  "greeting": "Latest",
+  "greeting": "Hey, I’m",
+  "recent": "Latest",
   "description": "Check out my most recent posts below",
   "more": "Read more",
   "all": "All posts",
@@ -23,5 +24,13 @@
   "github": "View on GitHub",
   "draft": "Under Construction",
   "noposts": "No posts found",
-  "poststagged": "View posts tagged"
+  "poststagged": "View posts tagged",
+  "backgroundContent": {
+    "I": "I",
+    "solve_problems": "solve problems",
+    "and_build_solutions_to_help_others_and_make": "and build solutions to help others and make",
+    "dreams": "dreams",
+    "come_true_with": "come true with",
+    "technology": "technology"
+  }
 }

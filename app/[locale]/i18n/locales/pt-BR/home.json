@@ -1,5 +1,6 @@
 {
-  "greeting": "Mais Recentes",
+  "greeting": "Olá, eu sou o",
+  "latest": "Mais recentes",
   "description": "Confira meus posts mais recentes abaixo",
   "more": "Leia mais",
   "all": "Todos os artigos",
@@ -23,5 +24,13 @@
   "github": "Ver no GitHub",
   "draft": "Em Construção",
   "noposts": "Nenhum artigo encontrado",
-  "poststagged": "Ver posts marcados"
+  "poststagged": "Ver posts marcados",
+  "backgroundContent": {
+    "I": "Eu",
+    "solve_problems": "resolvo problemas",
+    "and_build_solutions_to_help_others_and_make": "e construo soluções para ajudar os outros e fazer",
+    "dreams": "sonhos",
+    "come_true_with": "se tornarem realidade por meio da",
+    "technology": "tecnologia"
+  }
 }

@@ -1,13 +1,19 @@
 'use client'
 
-import projectsData from '@/data/projectsData'
+import projectsData, { ProjectOptions } from '@/data/projectsData'
 import Card from '@/components/Card'
 import { LocaleTypes } from '../i18n/settings'
 import { useParams } from 'next/navigation'
 
-const Project = () => {
+type ProjectPropsType = {
+  projectsToShow?: ProjectOptions[]
+}
+
+const Project = ({ projectsToShow }: ProjectPropsType) => {
   const locale = useParams()?.locale as LocaleTypes
-  const projectArray = projectsData[locale]
+  const projectArray = projectsToShow
+    ? projectsData[locale].filter((project) => projectsToShow.includes(project.title))
+    : projectsData[locale]
   return (
     <>
       {projectArray.map((project) => (

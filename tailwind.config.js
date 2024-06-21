@@ -15,6 +15,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 8s linear infinite',
+      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
@@ -80,5 +83,21 @@ module.exports = {
       }),
     },
   },
+  safelist: [
+    'blur-[3px]',
+    'blur-[2px]',
+    'blur-[1.5px]',
+    'blur-[1px]',
+    'blur-[0px]',
+    'opacity-[90%]',
+    'opacity-[80%]',
+    'opacity-[70%]',
+    'opacity-[60%]',
+    'opacity-[50%]',
+    'opacity-[40%]',
+    'opacity-[30%]',
+    'opacity-[20%]',
+    'opacity-[10%]',
+  ],
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

@@ -1,10 +1,12 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from '@/components/NewsletterForm'
+import PresentationContent from '@/components/PresentationContent'
 import { createTranslation } from '../app/[locale]/i18n/server'
 import { LocaleTypes } from '../app/[locale]/i18n/settings'
+import siteMetadata from '@/data/siteMetadata'
+import SocialIcon from '@/components/social-icons'
+import Project from 'app/[locale]/projects/project'
+import Link from 'next/link'
+import TechCarouselForHome from 'app/[locale]/skills/TechCarouselForHome'
+import TechsMobileForHome from 'app/[locale]/skills/TechsMobileForHome'
 
 interface Post {
   slug: string
@@ -24,94 +26,70 @@ interface HomeProps {
 const MAX_DISPLAY = 5
 
 export default async function HomeLayout({ posts, params: { locale } }: HomeProps) {
-  const { t } = await createTranslation(locale, 'home')
+  const { t } = await createTranslation(locale, 'common')
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-heading-400 dark:text-heading-400 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {t('greeting')}
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{t('description')}</p>
+    <div className="flex flex-col gap-10">
+      <PresentationContent params={{ locale }} />
+      <div className="flex flex-col items-center">
+        <p className="text-2xl font-bold uppercase text-primary-500">{t('title')}</p>
+        <div className="mt-4 flex space-x-4">
+          <div className="flex items-center">
+            <SocialIcon kind="github" href={siteMetadata.github} size={10} />
+          </div>
+          {/* <div className="flex items-center">
+              <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} />
+            </div> */}
+          <div className="flex items-center">
+            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={10} />
+          </div>
+          <div className="flex items-center">
+            <SocialIcon kind="instagram" href={siteMetadata.instagram} size={10} />
+          </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && t('noposts')}
-          {posts
-            .filter((p) => p.language === locale)
-            .slice(0, MAX_DISPLAY)
-            .map((post) => {
-              const { slug, date, title, summary, tags, language } = post
-              if (language === locale) {
-                return (
-                  <li key={slug} className="py-12">
-                    <article>
-                      <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                        <dl>
-                          <dt className="sr-only">{t('pub')}</dt>
-                          <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                            <time dateTime={date}>{formatDate(date, locale)}</time>
-                          </dd>
-                        </dl>
-                        <div className="space-y-5 xl:col-span-3">
-                          <div className="space-y-6">
-                            <div>
-                              <div className="text-2xl font-bold leading-8 tracking-tight">
-                                <Link
-                                  href={`/${locale}/blog/${slug}`}
-                                  className="text-gray-900 dark:text-gray-100"
-                                >
-                                  <h2>{title}</h2>
-                                </Link>
-                              </div>
-                              <ul className="flex flex-wrap">
-                                {tags.map((tag: string) => (
-                                  <li key={tag}>
-                                    <Tag text={tag} />
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                              {summary!.length > 149 ? `${summary!.substring(0, 149)}...` : summary}
-                            </div>
-                          </div>
-                          <div className="text-base font-medium leading-6">
-                            <Link
-                              href={`/${locale}/blog/${slug}`}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                              aria-label={`${t('more')}"${title}"`}
-                            >
-                              {t('more')} &rarr;
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                )
-              }
-            })}
-        </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href={`/${locale}/blog`}
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label={t('all')}
-          >
-            {t('all')} &rarr;
-          </Link>
+      <div className="flex flex-col">
+        <h2 className="text-4xl font-bold">{t('projects')}</h2>
+        <div className="flex flex-col items-center md:flex-row md:items-stretch">
+          <Project projectsToShow={['Barberstone', 'User Finder']} />
         </div>
-      )}
-
-      <div className="my-5"></div>
-
-      {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
+        <Link
+          className={
+            'mx-auto mt-4 cursor-pointer rounded-md bg-primary-500 px-4 py-2 font-medium text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400'
+          }
+          href="/projects"
+        >
+          {t('more_projects')}
+        </Link>
+      </div>
+      <div className="flex flex-col gap-4">
+        <h2 className="text-4xl font-bold">{t('about')}</h2>
+        <div className="flex">
+          <p>{t('about_me')}</p>
         </div>
-      )}
-    </>
+        <Link
+          className={
+            'mx-auto mt-4 cursor-pointer rounded-md bg-primary-500 px-4 py-2 font-medium text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400'
+          }
+          href="/about/andrevieira"
+        >
+          {t('more')}
+        </Link>
+      </div>
+      <div className="flex flex-col gap-4">
+        <h2 className="text-4xl font-bold">{t('skills')}</h2>
+        <div className="flex">
+          <TechCarouselForHome params={{ locale }} />
+          <TechsMobileForHome />
+        </div>
+        <Link
+          className={
+            'mx-auto mt-4 cursor-pointer rounded-md bg-primary-500 px-4 py-2 font-medium text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400'
+          }
+          href="/skills"
+        >
+          {t('more')}
+        </Link>
+      </div>
+    </div>
   )
 }

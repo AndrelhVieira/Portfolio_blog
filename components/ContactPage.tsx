@@ -19,18 +19,103 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import SocialIcon from './social-icons'
 
+import { IoCallOutline } from 'react-icons/io5'
+import { MdOutlineEmail } from 'react-icons/md'
+import { LuMapPin } from 'react-icons/lu'
+
 export default function ContactPage() {
   const [showModal, setShowModal] = useState(false)
+  const { theme } = useTheme()
 
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'contact')
 
   const schema = yup.object().shape({
-    name: yup.string().required(t('validations.name')),
+    firstName: yup.string().required(t('validations.firstName')),
+    lastName: yup.string().required(t('validations.lastName')),
     email: yup.string().email(t('validations.invalid_email')).required(t('validations.email')),
+    confirmEmail: yup
+      .string()
+      .oneOf([yup.ref('email')], t('validations.emailMatch'))
+      .required(t('validations.confirmEmail')),
+    country: yup.string().required(t('validations.country')),
     subject: yup.string().required(t('validations.subject')),
     message: yup.string().required(t('validations.message')),
   })
+
+  const countries = [
+    // América do Sul
+    'Argentina',
+    'Bolivia (Bolivia)',
+    'Brazil (Brasil)',
+    'Chile',
+    'Colombia',
+    'Ecuador',
+    'Guyana',
+    'Paraguay',
+    'Peru (Perú)',
+    'Suriname',
+    'Uruguay',
+    'Venezuela',
+
+    // América do Norte
+    'Canada',
+    'Mexico (México)',
+    'United States',
+
+    // Europa
+    'Albania (Shqipëri)',
+    'Andorra',
+    'Armenia (Հայաստան)',
+    'Austria (Österreich)',
+    'Azerbaijan (Azərbaycan)',
+    'Belarus (Беларусь)',
+    'Belgium (België)',
+    'Bosnia and Herzegovina (Bosna i Hercegovina)',
+    'Bulgaria (България)',
+    'Croatia (Hrvatska)',
+    'Cyprus (Κύπρος)',
+    'Czech Republic (Česká republika)',
+    'Denmark (Danmark)',
+    'Estonia (Eesti)',
+    'Finland (Suomi)',
+    'France',
+    'Georgia (საქართველო)',
+    'Germany (Deutschland)',
+    'Greece (Ελλάδα)',
+    'Hungary (Magyarország)',
+    'Iceland (Ísland)',
+    'Ireland (Éire)',
+    'Italy (Italia)',
+    'Latvia (Latvija)',
+    'Lithuania (Lietuva)',
+    'Luxembourg (Lëtzebuerg)',
+    'Malta',
+    'Moldova (Republica Moldova)',
+    'Monaco',
+    'Montenegro (Crna Gora)',
+    'Netherlands (Nederland)',
+    'North Macedonia (Северна Македонија)',
+    'Norway (Norge)',
+    'Poland (Polska)',
+    'Portugal',
+    'Romania (România)',
+    'Russia (Россия)',
+    'San Marino',
+    'Serbia (Србија)',
+    'Slovakia (Slovensko)',
+    'Slovenia (Slovenija)',
+    'Spain (España)',
+    'Sweden (Sverige)',
+    'Switzerland (Schweiz)',
+    'Turkey (Türkiye)',
+    'Ukraine (Україна)',
+    'United Kingdom',
+    'Vatican City (Città del Vaticano)',
+
+    // Austrália
+    'Australia',
+  ]
 
   const {
     register,
@@ -39,8 +124,6 @@ export default function ContactPage() {
   } = useForm({
     resolver: yupResolver(schema),
   })
-
-  const { theme } = useTheme()
 
   const sendEmail = (data: any) => {
     const serviceId = process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!
@@ -63,7 +146,18 @@ export default function ContactPage() {
       return
     }
 
-    emailjs.send(serviceId, templateId, data, userId).then(
+    const templateParams = {
+      to_name: 'Nome do Destinatário', // Substitua pelo nome real do destinatário se necessário
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      confirmEmail: data.confirmEmail,
+      country: data.country,
+      subject: data.subject,
+      message: data.message,
+    }
+
+    emailjs.send(serviceId, templateId, templateParams, userId).then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text)
         toast.success(t('email_sent'), {
@@ -86,6 +180,12 @@ export default function ContactPage() {
     )
   }
 
+  const onSubmit = (data: any) => {
+    sendEmail(data)
+  }
+
+  const subjectOptions: string[] = t('fields.subject_options', { returnObjects: true }) as string[]
+
   return (
     <div className="flex flex-col md:flex-row-reverse md:gap-20">
       <div className="flex flex-col gap-10">
@@ -98,50 +198,108 @@ export default function ContactPage() {
           <h2>{t('subtitle')}</h2>
         </div>
         <div>
-          <form className="flex flex-col gap-7" onSubmit={handleSubmit(sendEmail)}>
-            <div className="flex flex-col font-light">
-              <p className="text-xs text-gray-400">01</p>
-              <label className="font-semibold">{t('fields.name')}</label>
-              <input
-                type="text"
-                className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
-                id="name"
-                placeholder="John Doe"
-                {...register('name')}
-              />
-              {errors.name && <span className="text-primary-500">{errors.name.message}</span>}
+          <form className="flex flex-col gap-7" onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex w-full flex-col gap-7 xl:flex-row xl:gap-10">
+              <div className="flex w-full flex-col font-light">
+                <p className="text-xs text-gray-400">01</p>
+                <label className="font-semibold">{t('fields.firstName')}</label>
+                <input
+                  type="text"
+                  className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
+                  id="firstName"
+                  placeholder="John"
+                  {...register('firstName')}
+                />
+                {errors.firstName && (
+                  <span className="text-primary-500">{errors.firstName.message}</span>
+                )}
+              </div>
+              <div className="flex w-full flex-col font-light">
+                <p className="text-xs text-gray-400">02</p>
+                <label className="font-semibold">{t('fields.lastName')}</label>
+                <input
+                  type="text"
+                  className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
+                  id="lastName"
+                  placeholder="Doe"
+                  {...register('lastName')}
+                />
+                {errors.lastName && (
+                  <span className="text-primary-500">{errors.lastName.message}</span>
+                )}
+              </div>
             </div>
             <div className="flex flex-col font-light">
-              <p className="text-xs text-gray-400">02</p>
+              <p className="text-xs text-gray-400">03</p>
               <label className="font-semibold">{t('fields.email')}</label>
               <input
                 type="text"
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="email"
-                placeholder="john@doe.com"
+                placeholder="john.doe@email.com"
                 {...register('email')}
               />
               {errors.email && <span className="text-primary-500">{errors.email.message}</span>}
             </div>
             <div className="flex flex-col font-light">
-              <p className="text-xs text-gray-400">03</p>
-              <label className="font-semibold">{t('fields.subject')}</label>
+              <p className="text-xs text-gray-400">04</p>
+              <label className="font-semibold">{t('fields.confirmEmail')}</label>
               <input
                 type="text"
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
-                id="subject"
-                placeholder={t('fields.subject_placeholder')}
-                {...register('subject')}
+                id="confirmEmail"
+                placeholder="john.doe@email.com"
+                {...register('confirmEmail')}
               />
+              {errors.confirmEmail && (
+                <span className="text-primary-500">{errors.confirmEmail.message}</span>
+              )}
+            </div>
+            <div className="flex flex-col font-light">
+              <p className="text-xs text-gray-400">05</p>
+              <label className="font-semibold">{t('fields.country')}</label>
+              <select
+                className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
+                id="country"
+                {...register('country')}
+              >
+                <option value="" disabled selected>
+                  {t('fields.country')}
+                </option>
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+              {errors.country && <span className="text-primary-500">{errors.country.message}</span>}
+            </div>
+            <div className="flex flex-col font-light">
+              <p className="text-xs text-gray-400">06</p>
+              <label className="font-semibold">{t('fields.subject')}</label>
+              <select
+                className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
+                id="subject"
+                {...register('subject')}
+              >
+                <option value="" disabled selected>
+                  {t('fields.subject_placeholder')}
+                </option>
+                {subjectOptions.map((option, index) => (
+                  <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
               {errors.subject && <span className="text-primary-500">{errors.subject.message}</span>}
             </div>
             <div className="flex flex-col font-light">
-              <p className="text-xs text-gray-400">04</p>
+              <p className="text-xs text-gray-400">07</p>
               <label className="font-semibold">{t('fields.message')}</label>
               <textarea
                 className="border-b-2 border-l-0 border-r-0 border-t-0 bg-transparent pl-0 transition placeholder:text-gray-400 focus:border-b-heading-400 focus:ring-0 focus:ring-offset-0"
                 id="message"
-                placeholder={t('fields.message_placeholder')}
+                placeholder="Lorem ipsum dolor sit amet..."
                 {...register('message')}
               />
               {errors.message && <span className="text-primary-500">{errors.message.message}</span>}
@@ -172,13 +330,22 @@ export default function ContactPage() {
         <div className="flex flex-col gap-4 pt-5 text-center">
           <div>
             <p className="text-lg font-bold uppercase text-primary-500">{t('details.contact')}</p>
-            <p className="leading-10">{siteMetadata.email}</p>
-            <p className="leading-10">🇧🇷 {personalData.phoneNumber}</p>
+            <div className="flex items-center justify-center gap-3">
+              <MdOutlineEmail /> <p className="leading-10">{siteMetadata.email}</p>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <IoCallOutline /> <p className="leading-10">{personalData.phoneNumber}</p>
+            </div>
           </div>
           <div>
             <p className="text-lg font-bold uppercase text-primary-500">{t('details.personal')}</p>
-            <p className="leading-10">{t('details.nationality')}</p>
-            <p className="leading-10">{t('details.location')}</p>
+            <div className="flex items-center justify-center gap-3">
+              🇧🇷 <p className="leading-10">{t('details.nationality')}</p>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <LuMapPin />
+              <p className="leading-10">{t('details.location')}</p>
+            </div>
           </div>
           <div className="flex flex-col items-center">
             <p className="text-lg font-bold uppercase text-primary-500">{t('details.socials')}</p>
