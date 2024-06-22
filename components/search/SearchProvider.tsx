@@ -31,7 +31,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       name: name,
       keywords: '',
       shortcut: [],
-      section: locale === fallbackLng ? 'Authors' : 'Auteurs',
+      section: locale === fallbackLng ? 'Authors' : 'Autores',
       perform: () => router.push(`/${locale}/about/${slug}`),
       icon: (
         <i>

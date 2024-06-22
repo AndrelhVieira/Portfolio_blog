@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { FaReact } from 'react-icons/fa'
 
-import avatar from 'public/static/images/avatar.png'
+import logo from 'public/static/images/logo.png'
 import BackgroundContent from './BackgroundContent'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { createTranslation } from 'app/[locale]/i18n/server'
@@ -37,10 +37,10 @@ const PresentationContent = async ({ params: { locale } }: PresentationContentPr
         </div>
         <div>
           <Image
-            src={avatar}
+            src={logo}
             alt="André Luiz profile image"
             width={300}
-            className="h-[200px] w-[200px] rounded-[50%] border-4 border-primary-500 md:h-[250px] md:w-[250px] xl:h-[300px] xl:w-[300px]"
+            className="w-[200px] md:w-[250px] xl:w-[300px]"
           />
         </div>
       </div>

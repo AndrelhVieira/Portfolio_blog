@@ -8,6 +8,7 @@ import { useOuterClick } from './util/useOuterClick'
 import { useParams, usePathname } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { useTranslation } from 'app/[locale]/i18n/client'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 type AuthorsMenuProps = {
   className: string
@@ -55,11 +56,13 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
     <div ref={menubarRef} className={className}>
       <Menu as="div" className="relative inline-block text-left font-medium leading-5">
         <div
-          className={
-            authors.some((author) => author.slug.includes(lastSection)) && filterSections
-              ? 'text-primary-500 dark:text-primary-500'
-              : ''
-          }
+          className={`
+            ${
+              authors.some((author) => author.slug.includes(lastSection)) && filterSections
+                ? 'text-primary-500 dark:text-primary-500'
+                : ''
+            } flex
+            `}
         >
           <Menu.Button
             className="flex transform-gpu items-center space-x-1 transition-transform duration-300"
@@ -67,6 +70,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
           >
             {t('about')}
           </Menu.Button>
+          <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
         </div>
         <Transition
           as={Fragment}

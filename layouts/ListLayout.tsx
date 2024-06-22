@@ -12,6 +12,7 @@ import tagData from 'app/[locale]/tag-data.json'
 import { POSTS_PER_PAGE } from '@/data/postsPerPage'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import Image from 'next/image'
 
 interface PaginationProps {
   totalPages: number
@@ -105,10 +106,22 @@ export default function ListLayout({ params: { locale }, posts, title }: ListLay
         <div>
           <ul>
             {displayPosts.map((post) => {
-              const { slug, date, title, summary, tags, language } = post
+              const { slug, date, title, summary, tags, language, images } = post
               if (language === locale) {
                 return (
-                  <li key={slug} className="py-5">
+                  <li
+                    key={slug}
+                    className="flex flex-col items-center gap-5 py-5 xl:flex-row xl:items-start"
+                  >
+                    <div>
+                      <Image
+                        src={images[0]}
+                        width={250}
+                        height={250}
+                        alt={`${title} cover`}
+                        className="max-w-64 rounded-lg"
+                      />
+                    </div>
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <dl>
                         <dt className="sr-only">{t('pub')}</dt>

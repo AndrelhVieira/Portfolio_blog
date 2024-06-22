@@ -8,34 +8,34 @@
   "lang": "Idioma",
   "showmenu": "Mostrar menu",
   "scrollcomment": "Rolar para comentar",
-  "scrolltop": "Voltar ao topo",
-  "darkmode": "Alternar para o modo escuro",
+  "scrolltop": "Rolar para o topo",
+  "darkmode": "Alternar modo escuro",
   "content": "Conteúdo",
   "kbarplaceholder": "Digite um comando ou pesquise",
   "loading": "Carregando...",
-  "noresults": "Nenhum resultado encontrado...",
-  "poststagged": "Ver posts marcados",
-  "series": "Série:",
-  "episodes": "Episódio:",
+  "noresults": "Nenhum resultado para sua pesquisa...",
+  "poststagged": "Ver posts marcados com",
+  "series": "Séries:",
+  "episodes": "Episódios:",
   "share": "COMPARTILHAR",
-  "facebookshare": "botão de compartilhamento no Facebook",
-  "twittershare": "botão de compartilhamento no Twitter",
-  "linkedinshare": "botão de compartilhamento no LinkedIn",
-  "redditshare": "botão de compartilhamento no Reddit",
-  "whatsappshare": "botão de compartilhamento no WhatsApp",
-  "telegramshare": "botão de compartilhamento no Telegram",
-  "pinterestshare": "botão de compartilhamento no Pinterest",
-  "threadsshare": "botão de compartilhamento no Threads",
+  "facebookshare": "botão de compartilhar no Facebook",
+  "twittershare": "botão de compartilhar no Twitter",
+  "linkedinshare": "botão de compartilhar no LinkedIn",
+  "redditshare": "botão de compartilhar no Reddit",
+  "whatsappshare": "botão de compartilhar no WhatsApp",
+  "telegramshare": "botão de compartilhar no Telegram",
+  "pinterestshare": "botão de compartilhar no Pinterest",
+  "threadsshare": "botão de compartilhar no Threads",
   "theme": "Tema",
   "light": "Claro",
   "dark": "Escuro",
   "system": "Sistema",
   "name": "Nome*",
-  "title": "Entre em contato",
-  "mail": "Email*",
+  "title": "Entre em contato comigo",
+  "mail": "E-mail*",
   "button": "Enviar",
   "error": "Ops, algo deu errado!",
-  "thanks": "Obrigado por entrar em contato, responderei em breve!",
+  "thanks": "Obrigado por entrar em contato comigo, responderei em breve!",
   "message": "Mensagem*",
   "copyurl": "Copiar URL",
   "urlcopied": "URL copiada!",
@@ -46,8 +46,30 @@
   "portuguese": "Português (BR)",
   "english": "Inglês",
   "cancel": "Cancelar",
-  "skills": "Skills",
+  "skills": "Habilidades",
   "written_by": "Escrito por",
-  "about_me": "Sou desenvolvedor Full-stack e apaixonado por tecnologia e todas as coisas incríveis que ela nos proporciona! Amo o que faço e tenho foco para me tornar um desenvolvedor cada vez melhor.",
-  "more": "Ver mais"
+  "about_me": "Sou um desenvolvedor Full-stack apaixonado por tecnologia e todas as coisas incríveis que ela nos proporciona! Amo o que faço e estou focado em me tornar um desenvolvedor melhor a cada dia.",
+  "more": "Mais",
+  "blog_menu": {
+    "latest": {
+      "label": "Últimas publicações",
+      "description": "Fique atualizado com as últimas notícias e atualizações."
+    },
+    "all_posts": {
+      "label": "Todos os Posts",
+      "description": "Explore todos os artigos e tutoriais disponíveis no blog."
+    },
+    "all_tags": {
+      "label": "Todas as Tags",
+      "description": "Navegue pelos tópicos e categorias mais populares."
+    },
+    "react": {
+      "label": "React",
+      "description": "Descubra tudo sobre a biblioteca JavaScript mais poderosa para interfaces de usuário."
+    },
+    "mobile": {
+      "label": "Mobile",
+      "description": "Saiba mais sobre desenvolvimento de aplicativos móveis e melhores práticas."
+    }
+  }
 }

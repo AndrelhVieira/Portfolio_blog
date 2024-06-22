@@ -42,7 +42,7 @@ const BackgroundContent = async ({ params: { locale } }: BackgroundContentPropsT
   )
 
   return (
-    <div className="flex justify-center lg:mt-40">
+    <div className="flex justify-center lg:mt-64">
       <section className="flex flex-col">
         {blurOpacities.map(({ blur, opacity }, index) => (
           <div key={index}>{renderText(blur, opacity)}</div>

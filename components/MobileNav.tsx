@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
+import headerNavLinksMobile from '@/data/headerNavLinksMobile'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'app/[locale]/i18n/client'
@@ -70,7 +70,7 @@ const MobileNav = () => {
           </button>
         </div>
         <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link) => (
+          {headerNavLinksMobile.map((link) => (
             <div key={link.title} className="px-12 py-4">
               <Link
                 href={`/${locale}${link.href}`}

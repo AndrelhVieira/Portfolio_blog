@@ -47,7 +47,7 @@ export default async function PostMinimal({
             <div className="w-full">
               <Bleed>
                 <div className="relative aspect-[2/1] w-full">
-                  <Image src={displayImage} alt={title} fill className="object-cover" />
+                  <Image src={displayImage} alt={title} fill className="rounded-lg object-cover" />
                 </div>
               </Bleed>
             </div>
@@ -85,19 +85,14 @@ export default async function PostMinimal({
             </div>
           </div>
 
-          <div className="flex items-center justify-center pt-4">
-            <NewsletterForm />
+          <div className="flex flex-col justify-around xl:flex-row">
+            <Share title={title} slug={slug} />
+            <div className="flex items-center justify-center pt-4">
+              <NewsletterForm />
+            </div>
           </div>
 
-          <Share title={title} slug={slug} />
-          <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-            {siteMetadata.iswaline === true && <WalineComments />}
-            {siteMetadata.comments && siteMetadata.iscomments === true && <Comments slug={slug} />}
-          </div>
-
-          <GiscusContent />
-
-          <footer>
+          <footer className="mb-16 mt-5">
             <div className="grid-row-2 grid gap-5 text-sm font-medium sm:grid-cols-2 sm:flex-row sm:justify-between sm:text-base md:gap-10">
               {prev && prev.slug && (
                 <div className="pt-4 xl:pt-8">
@@ -123,6 +118,8 @@ export default async function PostMinimal({
               )}
             </div>
           </footer>
+
+          <GiscusContent />
         </div>
       </article>
     </SectionContainer>

@@ -12,6 +12,7 @@ import SearchButton from './search/SearchButton'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import type { LocaleTypes } from 'app/[locale]/i18n/settings'
 import AuthorsMenu from './AuthorsMenu'
+import BlogMenu from './BlogMenu'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
@@ -24,7 +25,7 @@ const Header = () => {
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
-              <div className="mr-3">
+              <div className="mr-4">
                 <Logo />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
@@ -43,6 +44,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
+          <BlogMenu params={{ locale }} />
           {headerNavLinks
             .filter((link) => {
               return link.href !== '/' && link.href !== '/skills' && link.href !== '/contact'

@@ -284,6 +284,7 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
   const handleLinkClick = (newLocale: string) => {
     setSelectedTag('')
     const resolvedUrl = handleLocaleChange(newLocale)
+
     router.push(resolvedUrl)
   }
 

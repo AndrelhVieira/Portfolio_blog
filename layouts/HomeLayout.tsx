@@ -8,7 +8,7 @@ import Link from 'next/link'
 import TechCarouselForHome from 'app/[locale]/skills/TechCarouselForHome'
 import TechsMobileForHome from 'app/[locale]/skills/TechsMobileForHome'
 
-interface Post {
+type PostType = {
   slug: string
   date: string
   title: string
@@ -18,20 +18,18 @@ interface Post {
   draft?: boolean
 }
 
-interface HomeProps {
-  posts: Post[]
+type HomePropsType = {
+  posts: PostType[]
   params: { locale: LocaleTypes }
 }
 
-const MAX_DISPLAY = 5
-
-export default async function HomeLayout({ posts, params: { locale } }: HomeProps) {
+export default async function HomeLayout({ posts, params: { locale } }: HomePropsType) {
   const { t } = await createTranslation(locale, 'common')
   return (
     <div className="flex flex-col gap-10">
       <PresentationContent params={{ locale }} />
       <div className="flex flex-col items-center">
-        <p className="text-2xl font-bold uppercase text-primary-500">{t('title')}</p>
+        <p className="text-center text-2xl font-bold uppercase text-primary-500">{t('title')}</p>
         <div className="mt-4 flex space-x-4">
           <div className="flex items-center">
             <SocialIcon kind="github" href={siteMetadata.github} size={10} />
