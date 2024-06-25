@@ -50,6 +50,8 @@
   "written_by": "Escrito por",
   "about_me": "Sou um desenvolvedor Full-stack apaixonado por tecnologia e todas as coisas incríveis que ela nos proporciona! Amo o que faço e estou focado em me tornar um desenvolvedor melhor a cada dia.",
   "more": "Mais",
+  "more_blog": "Ir para blog",
+  "posts_text": "Confira algumas de minhas publicações mais recentes em meu blog sobre programação.",
   "blog_menu": {
     "latest": {
       "label": "Últimas publicações",

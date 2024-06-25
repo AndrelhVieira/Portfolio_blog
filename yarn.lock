@@ -3595,6 +3595,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-cookie@npm:^3":
+  version: 3.0.6
+  resolution: "@types/js-cookie@npm:3.0.6"
+  checksum: 272d551687547445cb210213c73e72e0e5d58ad73e2e444a65d688b8ff9425529779ee0cd6492aaa1f070161916d4254ef2b1a76d64179100437f60749d094ef
+  languageName: node
+  linkType: hard
+
 "@types/json5@npm:^0.0.29":
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
@@ -4162,6 +4169,7 @@ __metadata:
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:^0.5.12"
+    "@types/js-cookie": "npm:^3"
     "@types/mdx": "npm:^2.0.12"
     "@types/react": "npm:^18.3"
     "@types/react-slick": "npm:^0"
@@ -4187,6 +4195,7 @@ __metadata:
     i18next-browser-languagedetector: "npm:^7.2.0"
     i18next-resources-to-backend: "npm:^1.2.0"
     image-size: "npm:1.1.1"
+    js-cookie: "npm:^3.0.5"
     lint-staged: "npm:^15.2.0"
     next: "npm:14.2.3"
     next-contentlayer2: "npm:0.4.6"
@@ -7858,6 +7867,13 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 289b124cea411c130a14ffe88e3d38376ab44b6695616dfa0a1f32176a8f20ec90cdd6d2b9d81450fc6467cfa4d865f04f49b98452bff0f812bc400fd0ae78d6
+  languageName: node
+  linkType: hard
+
+"js-cookie@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "js-cookie@npm:3.0.5"
+  checksum: 366494b1630b9fb8abaef3659748db5dfd52c58c6fc3459b9f0a03b492593bc1b01c6dfcc066b46f6413c28edb3a00cc68fb61ea8cdf6991bedf1f100f8a389d
   languageName: node
   linkType: hard
 

@@ -1,3 +1,22 @@
 {
-  "theme": "Tailwind Nextjs Theme"
+  "theme": "Tailwind Nextjs Theme",
+  "blog_menu": {
+    "latest": {
+      "label": "Latest Posts"
+    },
+    "all_posts": {
+      "label": "All Posts"
+    },
+    "all_tags": {
+      "label": "All Tags"
+    }
+  },
+  "about_me_menu": {
+    "about_me": {
+      "label": "About Me"
+    },
+    "contact": {
+      "label": "Contact"
+    }
+  }
 }

@@ -1,9 +1,14 @@
 {
   "mail": "Endereço de Email",
-  "title": "Assine a newsletter",
+  "title": "Assine minha newsletter",
+  "subtitle": "Não perca as últimas notícias e dicas especiais. Receba atualizações diretamente na sua caixa de entrada.",
   "messageError": "Seu endereço de email é inválido ou já está inscrito!",
   "placeholderSuccess": "Você está inscrito! 🎉",
   "placeholderDefault": "Digite seu endereço de email",
   "buttonSuccess": "Obrigado!",
-  "buttonDefault": "Inscrever-se"
+  "buttonDefault": "Inscrever-se",
+  "weekly_title": "Conteúdos semanais",
+  "weekly_text": "Mantenha-se atualizado com as últimas tendências, dicas e novidades em tecnologia e desenvolvimento. Você receberá diretamente na sua caixa de entrada uma seleção de artigos exclusivos, tutoriais práticos e insights valiosos que ajudarão a impulsionar suas habilidades e conhecimentos.",
+  "spam_title": "Sem spam",
+  "spam_text": "Valorizamos sua privacidade e prometemos não sobrecarregar sua caixa de entrada. Minha newsletter é cuidadosamente elaborada para trazer apenas conteúdos relevantes e de alta qualidade, sem spam."
 }

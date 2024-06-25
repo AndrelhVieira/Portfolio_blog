@@ -50,6 +50,8 @@
   "written_by": "Written by",
   "about_me": "I am a Full-stack developer passionate about technology and all the amazing things it provides us! I love what I do and I am focused on becoming a better developer every day.",
   "more": "More",
+  "more_blog": "Go to blog",
+  "posts_text": "Check out some of my most recent posts on my programming blog.",
   "blog_menu": {
     "latest": {
       "label": "Latest",
