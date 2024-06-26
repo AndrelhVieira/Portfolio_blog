@@ -6,6 +6,7 @@ import Image from '@/components/Image'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import siteMetadata from '@/data/siteMetadata'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 interface AuthorLayoutProps {
   children: ReactNode
@@ -53,6 +54,18 @@ export default async function AuthorLayout({
           {children}
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Bounce}
+      />
     </div>
   )
 }

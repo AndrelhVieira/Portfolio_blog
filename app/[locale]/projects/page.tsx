@@ -3,6 +3,7 @@ import Project from './project'
 import { genPageMetadata } from 'app/[locale]/seo'
 import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 type ProjectsProps = {
   params: { locale: LocaleTypes }
@@ -31,6 +32,18 @@ export default async function Projects({ params: { locale } }: ProjectsProps) {
           <Project />
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Bounce}
+      />
     </div>
   )
 }

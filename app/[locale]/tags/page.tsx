@@ -4,6 +4,7 @@ import tagData from 'app/[locale]/tag-data.json'
 import { genPageMetadata } from 'app/[locale]/seo'
 import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 type TagsProps = {
   params: { locale: LocaleTypes }
@@ -41,6 +42,18 @@ export default function Page({ params: { locale } }: TagsProps) {
           </div>
         ))}
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Bounce}
+      />
     </div>
   )
 }

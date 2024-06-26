@@ -3,20 +3,17 @@ import Image from '@/components/Image'
 import Bleed from 'pliny/ui/Bleed'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
-import Comments from '@/components/Comments'
 import AvatarImage from 'public/static/images/avatar.png'
-import WalineComments from '@/components/walinecomponents/walineComments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { PostSeriesBox } from '@/components/PostseriesBox'
 import Share from '@/components/Share'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import NewsletterForm from '@/components/NewsletterForm'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import GiscusContent from '@/components/GiscusContent'
+import NewsletterFormSimple from '@/components/NewsletterForm/NewsletterFormSimple'
 
 interface PostBannerProps {
   content: CoreContent<Blog>
@@ -74,12 +71,12 @@ export default async function PostMinimal({
             <div>
               <p className="mb-3 text-lg font-bold md:text-2xl">
                 {t('written_by')}{' '}
-                <Link href="/about/andrevieira" className="text-primary-300">
+                <Link href={`/${locale}/about/andrevieira`} className="text-primary-300">
                   André Luiz Vieira
                 </Link>
               </p>
               <p className="text-justify">{t('about_me')}</p>
-              <Link href="/about/andrevieira" className="text-primary-300">
+              <Link href={`/${locale}/about/andrevieira`} className="text-primary-300">
                 {t('more')}
               </Link>
             </div>
@@ -88,7 +85,7 @@ export default async function PostMinimal({
           <div className="flex flex-col justify-around xl:flex-row">
             <Share title={title} slug={slug} />
             <div className="flex items-center justify-center pt-4">
-              <NewsletterForm />
+              <NewsletterFormSimple />
             </div>
           </div>
 

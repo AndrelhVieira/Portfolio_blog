@@ -3,41 +3,9 @@ import { genPageMetadata } from '../seo'
 import { LocaleTypes } from '../i18n/settings'
 import { createTranslation } from '../i18n/server'
 
-import {
-  Canva,
-  Css,
-  Figma,
-  Filezilla,
-  Git,
-  Github,
-  Gitlab,
-  Html,
-  Java,
-  Javascript,
-  Jest,
-  Markdown,
-  MaterialUI,
-  MySQL,
-  Next,
-  Npm,
-  OhMyZsh,
-  Php,
-  Postgresql,
-  Python,
-  ReactIcon,
-  ReactNavigation,
-  Redux,
-  Sass,
-  SonarQube,
-  Storybook,
-  Tailwind,
-  Typescript,
-  Ubuntu,
-  Vercel,
-  Yarn,
-} from 'public/static/icons'
 import TechCarousel from './TechCarousel'
 import TechsMobile from './TechsMobile'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 type SkillsProps = {
   params: { skills: string[]; locale: LocaleTypes }
@@ -62,6 +30,18 @@ const SkillsPage = async ({ params: { locale } }: SkillsProps) => {
       </div>
       <TechCarousel params={{ locale }} />
       <TechsMobile params={{ locale }} />
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Bounce}
+      />
     </div>
   )
 }
