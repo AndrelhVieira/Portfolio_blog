@@ -5,6 +5,8 @@
   "messageError": "Seu endereço de email é inválido ou já está inscrito!",
   "placeholderSuccess": "Você está inscrito! 🎉",
   "placeholderDefault": "Digite seu endereço de email",
+  "recaptchaFailed": "Falha ao validar o reCAPTCHA. Por favor, tente novamente",
+  "recaptchaLoadFailed": "Falha ao carregar o reCAPTCHA. Por favor, tente novamente",
   "buttonSuccess": "Obrigado!",
   "buttonDefault": "Inscrever-se",
   "weekly_title": "Conteúdos semanais",

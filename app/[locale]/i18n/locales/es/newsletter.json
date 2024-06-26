@@ -5,6 +5,8 @@
   "messageError": "¡Tu dirección de correo electrónico es inválida o ya está suscrita!",
   "placeholderSuccess": "¡Estás suscrito! 🎉",
   "placeholderDefault": "Introduce tu dirección de correo electrónico",
+  "recaptchaFailed": "Fallo al validar el reCAPTCHA. Por favor, inténtelo de nuevo.",
+  "recaptchaLoadFailed": "Error al cargar reCAPTCHA. Por favor, inténtelo de nuevo",
   "buttonSuccess": "¡Gracias!",
   "buttonDefault": "Suscribirse",
   "weekly_title": "Contenidos semanales",

@@ -15,6 +15,7 @@ import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import Script from 'next/script'
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -106,6 +107,9 @@ export default function RootLayout({
             </div>
           </SectionContainer>
         </ThemeProvider>
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY}`}
+        />
       </body>
     </html>
   )

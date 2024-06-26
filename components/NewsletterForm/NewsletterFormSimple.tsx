@@ -17,20 +17,95 @@ const NewsletterFormSimple = ({ apiUrl }: NewsletterFormSimplePropsType) => {
   const { t } = useTranslation(locale, 'newsletter')
   const { theme } = useTheme()
 
-  const handleSubscribe = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
-    window.open('https://buttondown.email/AndrelhVieira', 'popupwindow')
-    toast.success(t('placeholderSuccess'), {
-      position: 'top-center',
-      autoClose: 8000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: theme,
-      transition: Bounce,
-    })
-  }, [])
+  const handleSubscribe = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+
+      const formData = new FormData(event.target as HTMLFormElement)
+      const email = formData.get('email')
+
+      console.log(
+        'process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY - ',
+        process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY
+      )
+      console.log('email - ', email)
+
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.ready(async () => {
+          try {
+            const token = await grecaptcha.execute(
+              process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY!,
+              {
+                action: 'submit',
+              }
+            )
+            const recaptchaResponse = await fetch('/recaptcha', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ token, email }),
+            })
+
+            const recaptchaResult = await recaptchaResponse.json()
+
+            if (recaptchaResult.success && recaptchaResult.score > 0.6) {
+              window.open('https://buttondown.email/AndrelhVieira', 'popupwindow')
+              toast.success(t('placeholderSuccess'), {
+                position: 'top-center',
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: theme,
+                transition: Bounce,
+              })
+            } else {
+              toast.error(t('recaptchaFailed'), {
+                position: 'top-center',
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: theme,
+                transition: Bounce,
+              })
+            }
+          } catch (error) {
+            console.error('Error during reCAPTCHA execution', error)
+            toast.error(t('recaptchaFailed'), {
+              position: 'top-center',
+              autoClose: 8000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: theme,
+              transition: Bounce,
+            })
+          }
+        })
+      } else {
+        toast.error(t('recaptchaLoadFailed'), {
+          position: 'top-center',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: theme,
+          transition: Bounce,
+        })
+      }
+    },
+    [t, theme]
+  )
 
   return (
     <>
