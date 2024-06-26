@@ -5,8 +5,6 @@
   "messageError": "Your email address is invalid or already subscribed!",
   "placeholderSuccess": "You're subscribed! 🎉",
   "placeholderDefault": "Enter your email address",
-  "recaptchaFailed": "Failed to validate reCAPTCHA. Please try again.",
-  "recaptchaLoadFailed": "Failed loading reCAPTCHA. Please try again.",
   "buttonSuccess": "Thank You!",
   "buttonDefault": "Subscribe",
   "weekly_title": "Weekly Content",
