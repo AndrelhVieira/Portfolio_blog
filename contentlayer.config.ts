@@ -27,7 +27,7 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
-import { fallbackLng, secondLng } from './app/[locale]/i18n/locales'
+import { fallbackLng, secondLng, thirdyLng } from './app/[locale]/i18n/locales'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -75,6 +75,7 @@ function createTagCount(allBlogs) {
   const tagCount = {
     [fallbackLng]: {},
     [secondLng]: {},
+    [thirdyLng]: {},
   }
 
   allBlogs.forEach((file) => {
@@ -85,6 +86,8 @@ function createTagCount(allBlogs) {
           tagCount[fallbackLng][formattedTag] = (tagCount[fallbackLng][formattedTag] || 0) + 1
         } else if (file.language === secondLng) {
           tagCount[secondLng][formattedTag] = (tagCount[secondLng][formattedTag] || 0) + 1
+        } else if (file.language === thirdyLng) {
+          tagCount[thirdyLng][formattedTag] = (tagCount[thirdyLng][formattedTag] || 0) + 1
         }
       })
     }

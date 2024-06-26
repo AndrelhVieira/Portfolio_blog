@@ -5,7 +5,7 @@ import SocialIcon from '@/components/social-icons'
 import { useState } from 'react'
 import { useParams, usePathname } from 'next/navigation'
 import { useTranslation } from 'app/[locale]/i18n/client'
-import { fallbackLng, secondLng } from 'app/[locale]/i18n/locales'
+import { fallbackLng, secondLng, thirdyLng } from 'app/[locale]/i18n/locales'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 
 type ShareProps = { title: string; description?: string; slug: string; className?: string }
@@ -34,6 +34,9 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
   } else if (locale === secondLng) {
     // If locale is secondLng, use the third segment
     targetSegment = pathSegments.length >= 3 ? pathSegments[2] : ''
+  } else if (locale === thirdyLng) {
+    // If locale is thirdyLng, use the fourth segment
+    targetSegment = pathSegments.length >= 4 ? pathSegments[3] : ''
   }
 
   return (

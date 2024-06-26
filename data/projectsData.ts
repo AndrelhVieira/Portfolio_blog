@@ -131,6 +131,61 @@ const projectsData: ProjectsData = {
       freela: true,
     },
   ],
+  es: [
+    {
+      title: 'User Finder',
+      description:
+        'El principal objetivo de esta aplicación es facilitar el acceso a la cuenta de amigos, empleados o incluso la tuya, proporcionando fácilmente el camino hacia los principales proyectos de Github de ese usuario. También puedes ver cuáles han sido tus últimas búsquedas a través de tu historial de búsqueda. Esta aplicación fue creada especialmente para Android.',
+      imgSrc: '/static/projects/user-finder.png',
+      href: 'https://user-finder.vercel.app',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder',
+    },
+    {
+      title: 'User Finder - iOS',
+      description: 'La misma idea de User Finder, pero desarrollada para iOS nativo usando Swift.',
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-iOS',
+    },
+    {
+      title: 'User Finder - Android',
+      description:
+        'La misma idea de User Finder, pero desarrollada para Android nativo usando Java.',
+      imgSrc: '/static/projects/user-finder.png',
+      githubLink: 'https://github.com/AndrelhVieira/User-Finder-Android',
+    },
+    {
+      title: 'Spotify Template',
+      description:
+        'El objetivo de este proyecto fue aprender a usar Tailwind CSS combinado con Next JS, uno de los frameworks React más potentes.',
+      imgSrc: '/static/projects/spotify-template.png',
+      githubLink: 'https://github.com/AndrelhVieira/next-tailwind-spotify',
+    },
+    {
+      title: 'Barberstone',
+      description:
+        'Después de una investigación sobre los servicios prestados por barberías, este proyecto fue desarrollado pensando en cómo podríamos mejorar la atención en las barberías, tanto para los clientes como para los barberos y empresarios.',
+      imgSrc: '/static/projects/barberstone.png',
+      githubLink: 'https://github.com/AndrelhVieira/Barberstone',
+      href: 'https://cap-stone-squad-2.vercel.app',
+    },
+    {
+      title: 'Translathor',
+      description:
+        'Una aplicación de traducción para dispositivos móviles usando React Native con un tema inspirado en Thor. ¡Muy guay, ¿no?!',
+      imgSrc: '/static/projects/translathor.png',
+      githubLink: 'https://github.com/AndrelhVieira/TranslaThor',
+      soon: true,
+    },
+    {
+      title: 'USS Informática',
+      description:
+        'Uno de mis primeros proyectos como freelancer. Una presentación profesional de servicios informáticos.',
+      imgSrc: '/static/projects/uss.png',
+      href: 'https://ussinformatica.com.br',
+      githubLink: 'https://github.com/AndrelhVieira/USS_Informatica',
+      freela: true,
+    },
+  ],
 }
 
 export default projectsData

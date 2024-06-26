@@ -4,7 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { LocaleTypes, locales } from 'app/[locale]/i18n/settings'
-import { fallbackLng, secondLng } from 'app/[locale]/i18n/locales'
+import { fallbackLng, secondLng, thirdyLng } from 'app/[locale]/i18n/locales'
 import {
   KBarPortal,
   KBarSearch,
@@ -24,6 +24,7 @@ import {
   SettingsIcon,
   EnglishIcon,
   PortugueseIcon,
+  SpanishIcon,
 } from '../icons'
 import { Sun, Moon, Monitor } from '@/components/theme/icons'
 import { useTheme } from '@/components/theme/ThemeContext'
@@ -77,6 +78,13 @@ const Settings = ({ t, handleThemeChange, handleLinkClick }: any) => (
         locale={secondLng}
         lang="portuguese"
         Icon={PortugueseIcon}
+      />
+      <LangButton
+        t={t}
+        handleLinkClick={handleLinkClick}
+        locale={thirdyLng}
+        lang="spanish"
+        Icon={SpanishIcon}
       />
       <div className="ml-4 text-3xl font-semibold text-primary-400">{t('theme')}</div>
       <ThemeButton t={t} handleThemeChange={handleThemeChange} theme="light" Icon={Sun} />

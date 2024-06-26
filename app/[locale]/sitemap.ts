@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
-import { fallbackLng, secondLng } from './i18n/locales'
+import { fallbackLng, secondLng, thirdyLng } from './i18n/locales'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternatepostsUrls.push({ url: alternatepostsUrl, lang: secondLng })
       }
 
+      if (post.language !== thirdyLng) {
+        const alternatepostsUrl = `${siteUrl}/${thirdyLng}/blog/${post.slug}`
+        alternatepostsUrls.push({ url: alternatepostsUrl, lang: thirdyLng })
+      }
+
       return [{ url: mainUrl, lastModified: post.lastmod || post.date }, ...alternatepostsUrls]
     })
 
@@ -40,6 +45,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternateauthorsUrls.push({ url: alternateauthorsUrl, lang: secondLng })
     }
 
+    if (author.language !== thirdyLng) {
+      const alternateauthorsUrl = `${siteUrl}/${thirdyLng}/about/${author.slug}`
+      alternateauthorsUrls.push({ url: alternateauthorsUrl, lang: thirdyLng })
+    }
+
     return [{ url: mainUrl }, ...alternateauthorsUrls]
   })
 
@@ -55,6 +65,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (route !== secondLng) {
       const alternateUrl = `${siteUrl}/${secondLng}/${route}`.replace(/\/$/, '')
       alternateUrls.push({ url: alternateUrl, lang: secondLng })
+    }
+
+    if (route !== thirdyLng) {
+      const alternateUrl = `${siteUrl}/${thirdyLng}/${route}`.replace(/\/$/, '')
+      alternateUrls.push({ url: alternateUrl, lang: thirdyLng })
     }
 
     return [{ url: mainUrl, lastModified: today }, ...alternateUrls]
