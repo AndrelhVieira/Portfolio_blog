@@ -6,6 +6,7 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { useTheme } from '../theme/ThemeContext'
 import { useCallback } from 'react'
 import { Bounce, toast } from 'react-toastify'
+import DetailsSectionWithIcon from '../DetailsSectionWithIcon'
 
 type NewsletterFormDetailedPropsType = {
   params: { locale: LocaleTypes }
@@ -73,24 +74,16 @@ export default function NewsletterFormDetailed({
             </form>
           </div>
           <dl className="grid-row-2 grid gap-x-8 gap-y-10 lg:pt-2">
-            <div className="flex flex-col items-center sm:items-start">
-              <div className="rounded-md p-2 ring-1 ring-primary-500/50">
-                <CalendarDaysIcon className="h-6 w-6 text-primary-500" aria-hidden="true" />
-              </div>
-              <dt className="mt-4 font-semibold text-primary-500">{t('weekly_title')}</dt>
-              <dd className="mt-2 text-center leading-7 text-gray-600 dark:text-gray-400 sm:text-start">
-                {t('weekly_text')}
-              </dd>
-            </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <div className="rounded-md p-2 ring-1 ring-primary-500/50">
-                <HandRaisedIcon className="h-6 w-6 text-primary-500" aria-hidden="true" />
-              </div>
-              <dt className="mt-4 font-semibold text-primary-500">{t('spam_title')}</dt>
-              <dd className="mt-2 text-center leading-7 text-gray-600 dark:text-gray-400 sm:text-start">
-                {t('spam_text')}
-              </dd>
-            </div>
+            <DetailsSectionWithIcon
+              icon={<CalendarDaysIcon className="h-6 w-6 text-primary-500" aria-hidden="true" />}
+              title={t('weekly_title')}
+              text={t('weekly_text')}
+            />
+            <DetailsSectionWithIcon
+              icon={<HandRaisedIcon className="h-6 w-6 text-primary-500" aria-hidden="true" />}
+              title={t('spam_title')}
+              text={t('spam_text')}
+            />
           </dl>
         </div>
       </div>

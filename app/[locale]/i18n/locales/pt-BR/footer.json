@@ -17,6 +17,12 @@
     },
     "contact": {
       "label": "Contato"
+    },
+    "projects": {
+      "label": "Projetos"
+    },
+    "freelancing": {
+      "label": "Serviços Freelancing"
     }
   }
 }

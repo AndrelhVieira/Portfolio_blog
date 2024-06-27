@@ -1,29 +1,21 @@
 'use client'
 
-import Image from 'next/image'
+import React from 'react'
 
-import AvatarImage from 'public/static/images/avatar.png'
-import siteMetadata from '@/data/siteMetadata'
-import { personalData } from '@/data/contactData'
 import emailjs from 'emailjs-com'
-import { useParams } from 'next/navigation'
-
 import { Bounce, toast } from 'react-toastify'
 import { useTheme } from '@/components/theme/ThemeContext'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useState } from 'react'
-import Modal from '@/components/Modal'
+import { useParams } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { useTranslation } from 'app/[locale]/i18n/client'
-import SocialIcon from './social-icons'
+import { useState } from 'react'
+import Modal from '@/components/Modal'
+import { countries } from './countries'
 
-import { IoCallOutline } from 'react-icons/io5'
-import { MdOutlineEmail } from 'react-icons/md'
-import { LuMapPin } from 'react-icons/lu'
-
-export default function ContactPage() {
+const ContactForm = () => {
   const [showModal, setShowModal] = useState(false)
   const { theme } = useTheme()
 
@@ -43,84 +35,11 @@ export default function ContactPage() {
     message: yup.string().required(t('validations.message')),
   })
 
-  const countries = [
-    // América do Sul
-    'Argentina',
-    'Bolivia (Bolivia)',
-    'Brazil (Brasil)',
-    'Chile',
-    'Colombia',
-    'Ecuador',
-    'Guyana',
-    'Paraguay',
-    'Peru (Perú)',
-    'Suriname',
-    'Uruguay',
-    'Venezuela',
-
-    // América do Norte
-    'Canada',
-    'Mexico (México)',
-    'United States',
-
-    // Europa
-    'Albania (Shqipëri)',
-    'Andorra',
-    'Armenia (Հայաստան)',
-    'Austria (Österreich)',
-    'Azerbaijan (Azərbaycan)',
-    'Belarus (Беларусь)',
-    'Belgium (België)',
-    'Bosnia and Herzegovina (Bosna i Hercegovina)',
-    'Bulgaria (България)',
-    'Croatia (Hrvatska)',
-    'Cyprus (Κύπρος)',
-    'Czech Republic (Česká republika)',
-    'Denmark (Danmark)',
-    'Estonia (Eesti)',
-    'Finland (Suomi)',
-    'France',
-    'Georgia (საქართველო)',
-    'Germany (Deutschland)',
-    'Greece (Ελλάδα)',
-    'Hungary (Magyarország)',
-    'Iceland (Ísland)',
-    'Ireland (Éire)',
-    'Italy (Italia)',
-    'Latvia (Latvija)',
-    'Lithuania (Lietuva)',
-    'Luxembourg (Lëtzebuerg)',
-    'Malta',
-    'Moldova (Republica Moldova)',
-    'Monaco',
-    'Montenegro (Crna Gora)',
-    'Netherlands (Nederland)',
-    'North Macedonia (Северна Македонија)',
-    'Norway (Norge)',
-    'Poland (Polska)',
-    'Portugal',
-    'Romania (România)',
-    'Russia (Россия)',
-    'San Marino',
-    'Serbia (Србија)',
-    'Slovakia (Slovensko)',
-    'Slovenia (Slovenija)',
-    'Spain (España)',
-    'Sweden (Sverige)',
-    'Switzerland (Schweiz)',
-    'Turkey (Türkiye)',
-    'Ukraine (Україна)',
-    'United Kingdom',
-    'Vatican City (Città del Vaticano)',
-
-    // Austrália
-    'Australia',
-  ]
-
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   })
@@ -147,7 +66,7 @@ export default function ContactPage() {
     }
 
     const templateParams = {
-      to_name: 'Nome do Destinatário', // Substitua pelo nome real do destinatário se necessário
+      to_name: 'André',
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
@@ -172,6 +91,7 @@ export default function ContactPage() {
           transition: Bounce,
         })
         setShowModal(true)
+        reset()
       },
       (error) => {
         console.log('FAILED...', error)
@@ -187,8 +107,8 @@ export default function ContactPage() {
   const subjectOptions: string[] = t('fields.subject_options', { returnObjects: true }) as string[]
 
   return (
-    <div className="flex flex-col md:flex-row-reverse md:gap-20">
-      <div className="flex flex-col gap-10">
+    <>
+      <div className="flex flex-col gap-10" id="contact">
         <div className="flex flex-col gap-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-heading-400 dark:text-heading-400 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {t('title_text_1')}
@@ -318,72 +238,16 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center">
-        <Image
-          src={AvatarImage}
-          alt="avatar"
-          title="avatar"
-          width={192}
-          height={192}
-          className="inset-border border-10 hidden h-48 w-48 rounded-full border-4 border-primary-500 md:block"
-        />
-        <div className="flex flex-col gap-4 pt-5 text-center">
-          <div>
-            <p className="text-lg font-bold uppercase text-primary-500">{t('details.contact')}</p>
-            <div className="flex items-center justify-center gap-3">
-              <MdOutlineEmail /> <p className="leading-10">{siteMetadata.email}</p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <IoCallOutline /> <p className="leading-10">{personalData.phoneNumber}</p>
-            </div>
-          </div>
-          <div>
-            <p className="text-lg font-bold uppercase text-primary-500">{t('details.personal')}</p>
-            <div className="flex items-center justify-center gap-3">
-              🇧🇷 <p className="leading-10">{t('details.nationality')}</p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <LuMapPin />
-              <p className="leading-10">{t('details.location')}</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <p className="text-lg font-bold uppercase text-primary-500">{t('details.socials')}</p>
-            <div className="mt-4 flex space-x-4">
-              <div className="flex items-center">
-                <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-              </div>
-              {/* <div className="flex items-center">
-              <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
-            </div> */}
-              <div className="flex items-center">
-                <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-              </div>
-              <div className="flex items-center">
-                <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
-              </div>
-            </div>
-          </div>
-          {/* TODO: Voltar uso do botão quando curriculum estiver disponível e validar melhor apresentação do botão */}
-          {/* <div className="pt-15 flex flex-col gap-5">
-              <p className="text-lg uppercase">{t('cv.check_text')}</p>
-              <button
-                type="submit"
-                className="w-full cursor-pointer rounded-md bg-heading-500 p-10 px-4 py-2 font-bold text-white transition hover:bg-heading-700 focus:ring-2 focus:ring-heading-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-heading-400"
-              >
-                CURRICULUM
-              </button>
-            </div> */}
 
-          {showModal && (
-            <Modal
-              title={t('modal_title')}
-              text={t('modal_text')}
-              onCancel={() => setShowModal(false)}
-            />
-          )}
-        </div>
-      </div>
-    </div>
+      {showModal && (
+        <Modal
+          title={t('modal_title')}
+          text={t('modal_text')}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
+    </>
   )
 }
+
+export default ContactForm

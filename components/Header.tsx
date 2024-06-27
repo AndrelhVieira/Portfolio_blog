@@ -19,9 +19,11 @@ const Header = () => {
   const { t } = useTranslation(locale, 'common')
   const pathname = usePathname()
 
+  const showHeader = pathname.includes('/freelancing')
+
   return (
     <header>
-      <div className="flex items-center justify-between py-10">
+      <div className={`${showHeader ? 'hidden' : 'block'} flex items-center justify-between py-10`}>
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">

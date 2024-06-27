@@ -48,6 +48,14 @@ export default function Footer() {
           name: t('about_me_menu.contact.label'),
           href: `/${locale}/contact`,
         },
+        {
+          name: t('about_me_menu.projects.label'),
+          href: `/${locale}/projects`,
+        },
+        {
+          name: t('about_me_menu.freelancing.label'),
+          href: `/${locale}/freelancing`,
+        },
       ],
     },
   ]

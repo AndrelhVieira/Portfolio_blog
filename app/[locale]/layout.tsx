@@ -15,6 +15,7 @@ import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import FreelancerBanner from '@/components/FreelancerBanner'
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -96,6 +97,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          <FreelancerBanner locale={locale} />
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               <SearchProvider>
