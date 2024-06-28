@@ -22,9 +22,9 @@ const PresentationContent = async ({ params: { locale } }: PresentationContentPr
   )
 
   return (
-    <section className="mx-auto flex flex-col items-center">
+    <section className="flex flex-col items-center">
       <BackgroundContent params={{ locale }} />
-      <div className="absolute flex w-full flex-col items-center justify-between gap-10 px-1 sm:top-48 sm:flex-row xl:max-w-screen-xl">
+      <div className="absolute flex w-full flex-col items-center justify-between gap-10 px-1 sm:top-72 sm:flex-row xl:max-w-screen-xl">
         <div className="mx-auto flex flex-col items-center self-baseline sm:mx-0 sm:items-baseline sm:self-auto">
           <div className="text-[40px] lg:text-[100px]">
             <FaReact color="#61DAFB" className="animate-spin-slow" />

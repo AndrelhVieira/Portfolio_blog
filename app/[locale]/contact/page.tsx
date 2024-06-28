@@ -15,6 +15,8 @@ import { LuMapPin } from 'react-icons/lu'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import ContactForm from '@/components/ContactForm'
 import SocialIcon from '@/components/social-icons'
+import { FaRegFileLines } from 'react-icons/fa6'
+import Link from 'next/link'
 
 type ContactPagePropsType = {
   params: { locale: LocaleTypes }
@@ -75,23 +77,22 @@ export default async function Page({ params: { locale } }: ContactPagePropsType)
               <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
             </div> */}
               <div className="flex items-center">
-                <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
+                <SocialIcon kind="linkedin" href={siteMetadata.linkedin!} size={6} />
               </div>
               <div className="flex items-center">
                 <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
               </div>
             </div>
           </div>
-          {/* TODO: Voltar uso do botão quando curriculum estiver disponível e validar melhor apresentação do botão */}
-          {/* <div className="pt-15 flex flex-col gap-5">
-              <p className="text-lg uppercase">{t('cv.check_text')}</p>
-              <button
-                type="submit"
-                className="w-full cursor-pointer rounded-md bg-heading-500 p-10 px-4 py-2 font-bold text-white transition hover:bg-heading-700 focus:ring-2 focus:ring-heading-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-heading-400"
-              >
-                CURRICULUM
-              </button>
-            </div> */}
+          <div className="pt-15 flex flex-col gap-5">
+            <Link
+              href={`/${locale}/curriculum`}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-primary-500 p-10 px-4 py-2 font-bold text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400"
+            >
+              <FaRegFileLines />
+              CURRICULUM
+            </Link>
+          </div>
         </div>
       </div>
       <ToastContainer

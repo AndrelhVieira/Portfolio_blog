@@ -3,25 +3,5 @@
   "birthdate": "Data de Nascimento: 18/09/2002",
   "location": "Localização: Curitiba, Paraná, Brasil",
   "nationality": "Nacionalidade: Brasileiro",
-  "marital_status": "Solteiro",
-  "profile": {
-    "title": "Perfil",
-    "profile_text": "Lorem ipsum dolor sit amet"
-  },
-  "education": {
-    "title": "Educação",
-    "education_text": "Lorem ipsum dolor sit amet"
-  },
-  "professional": {
-    "title": "Experiência Profissional"
-  },
-  "languages": {
-    "title": "Idiomas"
-  },
-  "skills": {
-    "title": "Habilidades"
-  },
-  "cultural_interests": {
-    "title": "Interesses Culturais e Recreação Física"
-  }
+  "marital_status": "Solteiro"
 }

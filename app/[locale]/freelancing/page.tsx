@@ -1,4 +1,3 @@
-import React from 'react'
 import { LocaleTypes } from '../i18n/settings'
 import { createTranslation } from '../i18n/server'
 import Header from './Header'
@@ -16,9 +15,20 @@ import Image from 'next/image'
 
 import FreelaImage from 'public/static/freelancing/freela-image.jpg'
 import { Bounce, ToastContainer } from 'react-toastify'
+import { Metadata } from 'next'
+import { genPageMetadata } from '../seo'
 
 type FreelancingPagePropsType = {
   params: { locale: LocaleTypes }
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: FreelancingPagePropsType): Promise<Metadata> {
+  return genPageMetadata({
+    title: 'Freelancing',
+    params: { locale: locale },
+  })
 }
 
 const FreelancingPage = async ({ params: { locale } }: FreelancingPagePropsType) => {

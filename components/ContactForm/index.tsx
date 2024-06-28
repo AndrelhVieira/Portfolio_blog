@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import emailjs from 'emailjs-com'
 import { Bounce, toast } from 'react-toastify'
@@ -11,7 +11,6 @@ import * as yup from 'yup'
 import { useParams } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { useTranslation } from 'app/[locale]/i18n/client'
-import { useState } from 'react'
 import Modal from '@/components/Modal'
 import { countries } from './countries'
 

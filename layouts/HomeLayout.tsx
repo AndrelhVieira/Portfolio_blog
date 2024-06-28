@@ -7,8 +7,6 @@ import Project from 'app/[locale]/projects/project'
 import Link from 'next/link'
 import TechCarouselForHome from 'app/[locale]/skills/TechCarouselForHome'
 import TechsMobileForHome from 'app/[locale]/skills/TechsMobileForHome'
-import { formatDate } from 'pliny/utils/formatDate'
-import Tag from '@/components/Tag'
 import PostList from '@/components/PostList'
 
 type PostType = {
@@ -44,7 +42,7 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
               <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} />
             </div> */}
           <div className="flex items-center">
-            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={10} />
+            <SocialIcon kind="linkedin" href={siteMetadata.linkedin!} size={10} />
           </div>
           <div className="flex items-center">
             <SocialIcon kind="instagram" href={siteMetadata.instagram} size={10} />

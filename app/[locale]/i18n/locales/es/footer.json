@@ -1,5 +1,6 @@
 {
   "theme": "Tema Tailwind Nextjs",
+  "more": "Mas",
   "blog_menu": {
     "latest": {
       "label": "Últimas publicaciones"

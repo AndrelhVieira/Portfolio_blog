@@ -33,11 +33,12 @@ const components = {
 
 type SocialIconProps = {
   kind: keyof typeof components
-  href?: string | undefined
+  href: string
   size?: number
+  showUserPath?: boolean
 }
 
-const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
+const SocialIcon = ({ kind, href, size = 8, showUserPath = false }: SocialIconProps) => {
   const SocialSvg = components[kind]
 
   return (
@@ -51,7 +52,9 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
         </>
       ) : (
         <a
-          className="text-sm text-gray-500 transition hover:text-gray-600"
+          className={`text-sm text-gray-500 transition hover:text-gray-600
+            ${showUserPath ? 'flex gap-2' : null}
+            `}
           target="_blank"
           rel="noopener noreferrer"
           href={href}
@@ -60,6 +63,15 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
           <SocialSvg
             className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
           />
+          {showUserPath ? (
+            <p className="text-base dark:text-gray-300">
+              {
+                href.split('https://')[1].split('/')[
+                  href.split('https://')[1].split('/').length - 1
+                ]
+              }
+            </p>
+          ) : null}
         </a>
       )}
     </>

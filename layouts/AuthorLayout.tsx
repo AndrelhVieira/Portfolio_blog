@@ -7,6 +7,8 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import siteMetadata from '@/data/siteMetadata'
 import { Bounce, ToastContainer } from 'react-toastify'
+import { FaRegFileLines } from 'react-icons/fa6'
+import Link from 'next/link'
 
 interface AuthorLayoutProps {
   children: ReactNode
@@ -46,8 +48,17 @@ export default async function AuthorLayout({
           <div className="text-gray-500 dark:text-gray-400">Freelancer</div>
           <div className="flex space-x-3 pt-6">
             <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
-            <SocialIcon kind="github" href={github} />
-            <SocialIcon kind="linkedin" href={linkedin} />
+            <SocialIcon kind="github" href={github!} />
+            <SocialIcon kind="linkedin" href={linkedin!} />
+          </div>
+          <div className="m-5 flex flex-col gap-5">
+            <Link
+              href={`/${locale}/curriculum`}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-primary-500 p-10 px-4 py-2 font-bold text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400"
+            >
+              <FaRegFileLines />
+              CURRICULUM
+            </Link>
           </div>
         </div>
         <div className="prose max-w-none pb-8 pt-8 text-justify dark:prose-invert xl:col-span-2">

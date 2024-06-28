@@ -4,6 +4,7 @@ const headerNavLinksMobile: { href?: string; title: string }[] = [
   { href: '/projects', title: 'Projects' },
   { href: '/skills', title: 'Skills' },
   { href: '/contact', title: 'Contact' },
+  { href: '/curriculum', title: 'Curriculum' },
 ]
 
 export default headerNavLinksMobile

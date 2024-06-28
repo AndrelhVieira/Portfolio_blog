@@ -17,9 +17,9 @@ const siteMetadata = {
   x: '',
   facebook: '',
   youtube: '',
-  linkedin: 'https://www.linkedin.com/in/andreluizhillerv/',
+  linkedin: 'https://www.linkedin.com/in/andreluizhillerv',
   threads: '',
-  instagram: 'https://www.instagram.com/andreluizhiller/',
+  instagram: 'https://www.instagram.com/andreluizhiller',
   locale: 'en',
   multiauthors: false,
   analytics: {

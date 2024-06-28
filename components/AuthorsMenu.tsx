@@ -31,8 +31,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
     { key: 'about', title: t('about'), href: `/${locale}/about/andrevieira` },
     { key: 'skills', title: 'Skills', href: `/${locale}/skills` },
     { key: 'contact', title: t('contact'), href: `/${locale}/contact` },
-    // TODO: Voltar menu de curriculum quando for implementado
-    // { key: 'curriculum', title: 'Curriculum', href: '/curriculum' },
+    { key: 'curriculum', title: 'Curriculum', href: '/curriculum' },
   ]
 
   const pathname = usePathname()

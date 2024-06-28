@@ -48,6 +48,11 @@ export default function Footer() {
           name: t('about_me_menu.contact.label'),
           href: `/${locale}/contact`,
         },
+      ],
+    },
+    {
+      title: t('more'),
+      submenus: [
         {
           name: t('about_me_menu.projects.label'),
           href: `/${locale}/projects`,
@@ -56,6 +61,10 @@ export default function Footer() {
           name: t('about_me_menu.freelancing.label'),
           href: `/${locale}/freelancing`,
         },
+        {
+          name: 'Curriculum',
+          href: `/${locale}/curriculum`,
+        },
       ],
     },
   ]
@@ -63,7 +72,7 @@ export default function Footer() {
   return (
     <>
       <footer className="mt-24 flex flex-col pb-10">
-        <div className="flex w-full flex-col items-center justify-between gap-2 sm:gap-5 xl:flex-row xl:items-start">
+        <div className="flex w-full flex-col items-center justify-between gap-2 sm:gap-5 xl:flex-row xl:items-start xl:gap-12">
           <div className="mb-4 flex flex-col justify-evenly gap-4 sm:w-full sm:flex-row xl:w-1/2 xl:justify-around">
             {footer_sections.map((section) => (
               <div key={section.title} className="flex flex-col items-center gap-4 sm:items-start">
@@ -100,7 +109,7 @@ export default function Footer() {
         <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
       </div> */}
             <div className="flex items-center">
-              <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
+              <SocialIcon kind="linkedin" href={siteMetadata.linkedin!} size={6} />
             </div>
             <div className="flex items-center">
               <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
