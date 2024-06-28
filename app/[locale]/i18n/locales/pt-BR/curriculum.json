@@ -3,5 +3,6 @@
   "birthdate": "Data de Nascimento: 18/09/2002",
   "location": "Localização: Curitiba, Paraná, Brasil",
   "nationality": "Nacionalidade: Brasileiro",
-  "marital_status": "Solteiro"
+  "marital_status": "Solteiro",
+  "download_cv": "Download do Curriculum"
 }

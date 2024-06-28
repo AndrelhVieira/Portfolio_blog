@@ -5,6 +5,7 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { coreContent } from 'pliny/utils/contentlayer'
 import PostCurriculumLayout from './PostCurriculum'
+import PrintButton from './PrintButton'
 
 type CurriculumProps = {
   params: { locale: LocaleTypes }
@@ -26,14 +27,19 @@ export default function Page({ params: { locale } }: CurriculumProps) {
   const mainContent = coreContent(curriculum)
 
   return (
-    <PostCurriculumLayout locale={locale} content={mainContent}>
-      <MDXLayoutRenderer
-        code={curriculum.body.code}
-        components={{
-          p: ({ children }) => <p className="my-3">{children}</p>,
-          h2: CustomTitle,
-        }}
-      />
-    </PostCurriculumLayout>
+    <>
+      <PostCurriculumLayout locale={locale} content={mainContent}>
+        <div>
+          <MDXLayoutRenderer
+            code={curriculum.body.code}
+            components={{
+              p: ({ children }) => <p className="my-3">{children}</p>,
+              h2: CustomTitle,
+            }}
+          />
+        </div>
+      </PostCurriculumLayout>
+      <PrintButton />
+    </>
   )
 }

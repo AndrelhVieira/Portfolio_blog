@@ -10,7 +10,7 @@ export default async function CurriculumInfos({ locale }: { locale: LocaleTypes 
 
   return (
     <div>
-      <div className="flex flex-col flex-wrap items-center gap-3 pt-5 text-gray-600 dark:text-gray-300 lg:flex-row lg:justify-center lg:gap-x-10">
+      <div className="flex flex-col flex-wrap items-center gap-3 pt-5 text-gray-600 dark:text-gray-300 sm:flex-row sm:justify-center sm:gap-x-10">
         <p>{siteMetadata.email}</p>
         <p>{personalData.phoneNumber}</p>
         <p>{t('gender')}</p>
@@ -19,7 +19,7 @@ export default async function CurriculumInfos({ locale }: { locale: LocaleTypes 
         <p>{t('nationality')}</p>
         <p>{t('marital_status')}</p>
       </div>
-      <div className="flex flex-col flex-wrap items-center gap-5 pt-5 text-gray-600 lg:flex-row lg:justify-center lg:gap-x-10">
+      <div className="flex flex-col flex-wrap items-center gap-5 pt-5 text-gray-600 sm:flex-row sm:justify-center sm:gap-x-10">
         <div className="flex items-center">
           <SocialIcon kind="github" href={siteMetadata.github} size={6} showUserPath />
         </div>
