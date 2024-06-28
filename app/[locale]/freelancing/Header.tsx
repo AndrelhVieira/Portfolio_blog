@@ -7,7 +7,6 @@ import { LocaleTypes } from '../i18n/settings'
 import ThemeSwitch from '@/components/theme/ThemeSwitch'
 import LangSwitch from '@/components/LangSwitch'
 import headerNavLinksFreelancing from './headerNavLinksFreelancing'
-import { usePathname } from 'next/navigation'
 import MobileNavFreela from './MobileNavFreela'
 import { useTranslation } from '../i18n/client'
 import SectionContainer from '@/components/SectionContainer'
@@ -18,7 +17,7 @@ export default function Header({ locale }: { locale: LocaleTypes }) {
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between font-sans">
-        <header className="absolute inset-x-8 top-0 z-50 lg:inset-x-48">
+        <header className="absolute inset-x-8 top-32 z-50 sm:top-20 lg:inset-x-48 2xl:top-12">
           <div className="flex items-center justify-between py-10">
             <div>
               <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>

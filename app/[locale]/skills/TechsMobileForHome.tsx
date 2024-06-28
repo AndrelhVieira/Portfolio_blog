@@ -44,20 +44,12 @@ const TechsMobileForHome = async () => {
               <p>Java</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <Python width={75} height={75} />
-              <p>Python</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
               <Php width={75} height={75} />
               <p>Php</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Git width={75} height={75} />
               <p>Git</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Figma width={75} height={75} />
-              <p>Figma</p>
             </div>
           </div>
         </div>

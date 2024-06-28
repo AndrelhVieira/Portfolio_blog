@@ -98,10 +98,6 @@ const TechsMobile = async ({ params: { locale } }: TechsMobilePropsType) => {
               <p>Postgresql</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <Python width={75} height={75} />
-              <p>Python</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
               <Sass width={75} height={75} />
               <p>Sass</p>
             </div>

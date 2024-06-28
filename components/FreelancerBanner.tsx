@@ -1,4 +1,3 @@
-import { XMarkIcon } from '@heroicons/react/20/solid'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import Link from 'next/link'
@@ -6,7 +5,7 @@ import Link from 'next/link'
 export default async function FreelancerBanner({ locale }: { locale: LocaleTypes }) {
   const { t } = await createTranslation(locale, 'freelancing')
   return (
-    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div className="relative isolate mx-auto flex items-center gap-x-6 overflow-hidden rounded-bl-lg rounded-br-lg bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 md:w-8/12">
       <div
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
         aria-hidden="true"
