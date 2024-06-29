@@ -10,8 +10,6 @@ const Faq = ({ locale }: { locale: LocaleTypes }) => {
     returnObjects: true,
   }) as { title: string; text: string }[]
 
-  console.log('questions - ', questions)
-
   return (
     <div className="min-h-sceen mx-autobg-white px-5" id="faq">
       <div className="flex flex-col items-center">

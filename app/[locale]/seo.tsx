@@ -21,10 +21,11 @@ export function genPageMetadata({
 }: PageSEOProps): Metadata {
   return {
     title,
+    description: description || maindescription[locale],
     openGraph: {
       title: `${title} | ${maintitle[locale]}`,
       description: description || maindescription[locale],
-      url: './',
+      url: siteMetadata.siteUrl,
       siteName: maintitle[locale],
       images: image ? [image] : [siteMetadata.socialBanner],
       locale: locale,
@@ -32,6 +33,9 @@ export function genPageMetadata({
     },
     twitter: {
       title: `${title} | ${maintitle[locale]}`,
+      description: description ? description : maindescription[locale],
+      site: siteMetadata.siteUrl,
+      creator: siteMetadata.author,
       card: 'summary_large_image',
       images: image ? [image] : [siteMetadata.socialBanner],
     },

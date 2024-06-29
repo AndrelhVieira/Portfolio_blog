@@ -237,7 +237,12 @@ const ResultItem = ({ item, active }: any) => (
   </div>
 )
 
-export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading: boolean }) => {
+interface KBarModalProps {
+  actions: any
+  isLoading: boolean
+}
+
+export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'common')
   const pathname = usePathname()
@@ -258,9 +263,9 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
   } = useContactForm()
 
   const { setTheme, mounted } = useTheme()
-  const [showEmailForm, setShowEmailForm] = useState(false)
-  const [showSettings, setShowSettings] = useState(false)
-  const [showCopied, setShowCopied] = useState(false)
+  const [showEmailForm, setShowEmailForm] = useState<boolean>(false)
+  const [showSettings, setShowSettings] = useState<boolean>(false)
+  const [showCopied, setShowCopied] = useState<boolean>(false)
 
   const toggleShowEmail = () => {
     if (siteMetadata.formspree) {
@@ -278,8 +283,8 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
     setTimeout(() => setShowCopied(false), 1000)
   }
 
-  const handleLocaleChange = (newLocale: string): string => {
-    const segments = pathname!.split('/')
+  const handleLocaleChange = (newLocale: string) => {
+    const segments = pathname.split('/')
     const localeIndex = segments.findIndex((segment) => locales.includes(segment as LocaleTypes))
     if (localeIndex !== -1) {
       segments[localeIndex] = newLocale
@@ -289,14 +294,13 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
     return segments.join('/')
   }
 
-  const handleLinkClick = (newLocale: string) => {
+  const handleLinkClick = (newLocale) => {
     setSelectedTag('')
     const resolvedUrl = handleLocaleChange(newLocale)
-
     router.push(resolvedUrl)
   }
 
-  const handleThemeChange = (newTheme: string) => setTheme(newTheme)
+  const handleThemeChange = (newTheme) => setTheme(newTheme)
 
   if (!mounted) return null
 
