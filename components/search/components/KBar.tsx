@@ -60,19 +60,14 @@ export const KBarSearchProvider: FC<{
       return actions
     }
     async function fetchData() {
-      console.log('searchDocumentsPath - ', searchDocumentsPath)
-
       if (searchDocumentsPath) {
         const url =
           searchDocumentsPath.indexOf('://') > 0 || searchDocumentsPath.indexOf('//') === 0
             ? searchDocumentsPath
             : new URL(searchDocumentsPath, window.location.origin)
-        console.log('url - ', url)
 
         const res = await fetch(url)
         const json = await res.json()
-        console.log('json - ', JSON.stringify(json))
-        console.log('item 0 - ', JSON.stringify(json[0]))
 
         const actions = onSearchDocumentsLoad ? onSearchDocumentsLoad(json) : mapPosts(json)
         setSearchActions(actions)
