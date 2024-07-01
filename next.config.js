@@ -1,5 +1,4 @@
 const { withContentlayer } = require('next-contentlayer2')
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -8,12 +7,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is statichunt.com www.googletagmanager.com www.google-analytics.com;
-  style-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   img-src * blob: data: statichunt.com;
   media-src 'self' *.s3.amazonaws.com;
   connect-src * statichunt.com www.google-analytics.com;
-  font-src 'self';
-  frame-src giscus.app
+  font-src 'self' https://fonts.gstatic.com;
+  frame-src giscus.app;
 `
 
 const securityHeaders = [
@@ -82,7 +81,11 @@ module.exports = () => {
         },
       ]
     },
-    webpack: (config, options) => {
+    webpack: (config, { dev }) => {
+      if (!dev) {
+        config.devtool = false // Desativa mapas de origem em produção
+      }
+
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],

@@ -16,6 +16,8 @@ import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import FreelancerBanner from '@/components/FreelancerBanner'
+import Script from 'next/script'
+import CookieConsent from '@/components/CookieConsent'
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -92,12 +94,35 @@ export default function RootLayout({
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=G-XF8SWN7NV6`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-XF8SWN7NV6', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+            }}
+          />
+        </>
+      )}
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <TwSizeIndicator />
         <GoogleAnalytics />
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <FreelancerBanner locale={locale} />
+          <CookieConsent params={{ locale: locale }} />
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               <SearchProvider>

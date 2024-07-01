@@ -15,7 +15,7 @@ export default function GiscusContent() {
         mapping="pathname"
         metadata="0"
         reactions="1"
-        repo="AndrelhVieira/base"
+        repo="AndrelhVieira/blog_discuss_base"
         repositoryId="R_kgDOMLpOXg"
         themeURL={theme}
       />

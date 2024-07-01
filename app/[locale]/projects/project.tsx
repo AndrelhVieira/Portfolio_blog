@@ -12,7 +12,7 @@ type ProjectPropsType = {
 const Project = ({ projectsToShow }: ProjectPropsType) => {
   const locale = useParams()?.locale as LocaleTypes
   const projectArray = projectsToShow
-    ? projectsData[locale].filter((project) => projectsToShow.includes(project.title))
+    ? projectsData[locale]?.filter((project) => projectsToShow.includes(project.title))
     : projectsData[locale]
   return (
     <>
