@@ -46,6 +46,10 @@ const ContactForm = () => {
     const templateId = process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!
     const userId = process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY!
 
+    console.log({ serviceId })
+    console.log({ templateId })
+    console.log({ userId })
+
     if (!serviceId || !templateId || !userId) {
       console.error('Faltando configurações do EmailJS.')
       toast.error(t('error_on_emailjs'), {
