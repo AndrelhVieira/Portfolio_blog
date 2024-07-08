@@ -10,7 +10,7 @@ import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { useTagStore } from '../util/useTagStore'
 
 type MenuType = {

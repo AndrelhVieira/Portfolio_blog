@@ -3,7 +3,7 @@ import PostList from '@/components/PostList'
 import siteMetadata from '@/data/siteMetadata'
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import Link from 'next/link'
+import Link from '@/components/Link'
 
 const MAX_DISPLAY = 5
 

@@ -1,6 +1,6 @@
 import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import Link from 'next/link'
+import Link from '@/components/Link'
 
 export default async function FreelancerBanner({ locale }: { locale: LocaleTypes }) {
   const { t } = await createTranslation(locale, 'freelancing')

@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react'
 import { useParams } from 'next/navigation'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { useTagStore } from './util/useTagStore'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 

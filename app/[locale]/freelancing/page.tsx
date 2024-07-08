@@ -9,7 +9,7 @@ import { FaHandshakeSimple } from 'react-icons/fa6'
 
 import Faq from './Faq'
 import Project from '../projects/project'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import ContactForm from '@/components/ContactForm'
 import Image from 'next/image'
 

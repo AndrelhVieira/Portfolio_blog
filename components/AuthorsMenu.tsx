@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { Fragment, useRef, useState } from 'react'
 import { Menu, RadioGroup, Transition } from '@headlessui/react'

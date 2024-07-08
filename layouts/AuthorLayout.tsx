@@ -8,7 +8,7 @@ import { createTranslation } from 'app/[locale]/i18n/server'
 import siteMetadata from '@/data/siteMetadata'
 import { Bounce, ToastContainer } from 'react-toastify'
 import { FaRegFileLines } from 'react-icons/fa6'
-import Link from 'next/link'
+import Link from '@/components/Link'
 
 interface AuthorLayoutProps {
   children: ReactNode

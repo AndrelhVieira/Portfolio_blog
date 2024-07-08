@@ -1,5 +1,5 @@
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { formatDate } from 'pliny/utils/formatDate'
 import Tag from './Tag'
 import { createTranslation } from 'app/[locale]/i18n/server'

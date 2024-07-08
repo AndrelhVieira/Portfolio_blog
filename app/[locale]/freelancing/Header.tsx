@@ -1,7 +1,7 @@
 'use client'
 
 import Logo from '@/data/logo.svg'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { LocaleTypes } from '../i18n/settings'
 import ThemeSwitch from '@/components/theme/ThemeSwitch'

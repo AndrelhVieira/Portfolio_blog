@@ -27,7 +27,7 @@ const BackgroundContent = async ({ params: { locale } }: BackgroundContentPropsT
   const { t } = await createTranslation(locale, 'home')
 
   const renderText = (blur: number, opacity: number) => (
-    <p
+    <div
       className={`text-center filter blur-[${blur}px] 
       ${opacity ? `opacity-[${opacity}%] ` : ''}
       md:text-xl`}
@@ -38,7 +38,7 @@ const BackgroundContent = async ({ params: { locale } }: BackgroundContentPropsT
       <p className="inline text-[#3891A6]">{t('backgroundContent.dreams')}</p>{' '}
       {t('backgroundContent.come_true_with')}{' '}
       <p className="inline text-emerald-500">{t('backgroundContent.technology')}</p>
-    </p>
+    </div>
   )
 
   return (

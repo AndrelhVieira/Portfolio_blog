@@ -5,7 +5,7 @@ import Logo from '/public/static/images/logo.png'
 import { IoArrowBackOutline } from 'react-icons/io5'
 
 import { FaAngleRight } from 'react-icons/fa6'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { useTranslation } from './i18n/client'
 import { useParams } from 'next/navigation'
 import { LocaleTypes } from './i18n/settings'

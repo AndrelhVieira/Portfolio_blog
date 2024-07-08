@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { Card, CardHeader, CardTitle, CardContent } from './seriesCard'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { useParams } from 'next/navigation'

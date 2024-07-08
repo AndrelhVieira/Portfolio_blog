@@ -77,7 +77,7 @@ const projectsData: ProjectsData = {
       freela: true,
     },
   ],
-  'pt-BR': [
+  pt: [
     {
       title: 'User Finder',
       description:

@@ -16,7 +16,7 @@ import { createTranslation } from 'app/[locale]/i18n/server'
 import ContactForm from '@/components/ContactForm'
 import SocialIcon from '@/components/social-icons'
 import { FaRegFileLines } from 'react-icons/fa6'
-import Link from 'next/link'
+import Link from '@/components/Link'
 
 type ContactPagePropsType = {
   params: { locale: LocaleTypes }
