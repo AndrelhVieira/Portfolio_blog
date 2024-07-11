@@ -31,7 +31,7 @@ const CookieConsent = ({ params: { locale } }: CookieConsentPropsType) => {
 
   return (
     showConsent && (
-      <div className="bg-white-800 sticky bottom-5 left-5 right-5 rounded-xl border bg-white p-4 shadow-md dark:border-none dark:bg-gray-800 md:fixed">
+      <div className="bg-white-800 sticky bottom-5 left-5 right-5 z-50 rounded-xl border bg-white p-4 shadow-md dark:border-none dark:bg-gray-800 md:fixed">
         <p className="text-2xl font-bold">{t('title')} 🍪</p>
         <p>{t('primary_text')}</p>
         <p className="mt-4 text-lg font-bold">{t('secondary_title')}</p>
