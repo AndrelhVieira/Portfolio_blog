@@ -201,9 +201,20 @@ export const Curriculum = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const BragDocument = defineDocumentType(() => ({
+  name: 'BragDocument',
+  filePathPattern: 'bragDocument/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    language: { type: 'string' },
+    title: { type: 'string' },
+  },
+  computedFields,
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Curriculum],
+  documentTypes: [Blog, Authors, Curriculum, BragDocument],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

@@ -32,6 +32,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
     { key: 'skills', title: 'Skills', href: `/${locale}/skills` },
     { key: 'contact', title: t('contact'), href: `/${locale}/contact` },
     { key: 'curriculum', title: 'Curriculum', href: `/${locale}/curriculum` },
+    { key: 'bragDocument', title: 'Brag Document', href: `/${locale}/bragDocument` },
   ]
 
   const pathname = usePathname()
