@@ -18,6 +18,7 @@ export default async function CurriculumInfos({ locale }: { locale: LocaleTypes 
         <p>{t('location')}</p>
         <p>{t('nationality')}</p>
         <p>{t('marital_status')}</p>
+        <p>{t('location_availability')}</p>
       </div>
       <div className="flex flex-col flex-wrap items-center gap-5 pt-5 text-gray-600 sm:flex-row sm:justify-center sm:gap-x-10">
         <div className="flex items-center">
